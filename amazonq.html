@@ -166,6 +166,38 @@
   margin: 1em 0;
 }
 
+#reference {
+  padding: 1.5em 1em; /* match other sections */
+  margin: 0 auto 2em;
+  max-width: 900px;
+  background: var(--card-bg);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#reference .highlight {
+  background: #f9f9f9;
+  padding: 0;
+  border-left: none;
+  box-shadow: none;
+  margin: 0;
+}
+
+#reference p {
+  margin: 0.6em 0;
+  padding-left: 0;
+  text-align: left;
+}
+
+#reference a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+#reference a:hover {
+  text-decoration: underline;
+}
+
   </style>
 
   <style>
@@ -221,7 +253,7 @@
        <p>B-Trees: A self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.</p>
        <p>Searching 120 in the B-Tree</p>
        <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-  <img src="https://github.com/VrushaliBargur/APS-Portfolio/blob/main/Screenshot%202025-06-07%20105115.png" alt="Deep-Q-Learning" width="400" height="300" />
+  <img src="https://github.com/VrushaliBargur/APS-Portfolio/blob/main/Screenshot%202025-06-07%20105115.png" alt="" width="400" height="300" />
   <div style="font-weight: bold; margin-top: 8px;">B-Tree Search Example</div>
   <div style="font-size: 0.9rem; color: #555; margin-top: 4px;">
     Image Source: 
@@ -255,7 +287,7 @@
         Space Complexity: O(n)</p>
 
         <p><a href="https://github.com/VrushaliBargur/APS-Portfolio/blob/main/b_code.c">View B-Tree's code here</a></p>
-        <p><a href="b+trees.c" >View B+ Tree's code here</a></p>
+        <p><a href="https://github.com/VrushaliBargur/APS-Portfolio/blob/main/b%2Btrees.c" >View B+ Tree's code here</a></p>
 
       <h2>2.Chunking & Embeddings for Retrieval-Augmented Generation (RAG)</h2>
    <p>In Amazon Q’s retrieval system, large documents are first divided into smaller overlapping pieces called chunks. This chunking preserves context while making it easier to process and search the text efficiently. Each chunk is then transformed into a semantic embedding—a numerical vector that captures the meaning of the text in that chunk.
@@ -290,9 +322,34 @@ from complex, high-dimensional embeddings. This blend of classical and modern al
 </section>
 
   </div>
+ 
+  <div class="highlight">
+  <section id="reference" class="section">
+    <h2>References</h2>
+    <div class="highlight">
+      <p>
+        <a href="https://www.geeksforgeeks.org/introduction-of-b-tree/" target="_blank">
+          GeeksforGeeks (B-Trees)
+        </a>
+      </p>
+      <p>
+        <a href="https://www.geeksforgeeks.org/implementation-of-b-plus-tree-in-c/" target="_blank">
+          GeeksforGeeks (B+ Trees)
+        </a>
+      </p>
+      <p>
+        <a href="https://www.shiksha.com/online-courses/articles/b-tree-in-data-structure/" target="_blank">
+          Shiksha (B-Trees Article)
+        </a>
+      </p>
+    </div>
+  </section>
+</div>
+
+
 
   <footer>
-    © 2025 VrushaliBargur – Developed for Academic Portfolio
+    © 2025 VrushaliBargur
   </footer>
 </body>
 </html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon Kinesis – Real-Time Data Streaming</title>
+  <style>
+  :root {
+  --primary: #4a90e2;     /* nice blue */
+  --accent: #f39c12;      /* warm orange */
+  --bg: #f0f4f8;          /* soft light background */
+  --text: #333333;        /* dark gray text */
+  --card-bg: #ffffff;     /* white cards */
+  --shadow: rgba(0, 0, 0, 0.1); /* subtle shadow */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+  min-height: 100vh;
+  
+  text-align: center;      /* center all inline text inside */
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow);
+  padding: 2em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #fffbea;
+  color: var(--accent);
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow);
+  margin-bottom: 20px;
+  /* text-align: center inherited */
+}
+
+h1, h2, h3, p, ul, li {
+  text-align: center;  /* explicitly center all text content */
+}
+
+ul {
+  padding-left: 0;                /* remove default left padding */
+  list-style-position: inside;   /* keep bullets inside container */
+  display: inline-block;          /* make the whole ul shrink to content */
+  text-align: left;              /* keep bullet text left aligned inside */
+  margin: 0 auto 1em auto;       /* center the list horizontally */
+}
+
+ul li {
+  margin-bottom: 12px;
+  /* no inline-block here, so each bullet on new line */
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.source {
+  font-size: 0.95rem;
+  color: #666666;
+}
+
+.algorithm {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center; /* center content inside */
+}
+
+pre {
+  background-color: #2d2f31;
+  color: #f8f8f2;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  max-width: 100%;
+}
+
+code {
+  font-family: Consolas, Monaco, monospace;
+}
+
+footer {
+  text-align: center;
+  padding: 1em 0;
+  color: #666666;
+  font-size: 0.9em;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .section {
+    padding: 20px;
+  }
+  .container {
+    padding: 20px 10px;
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+       <header>
+      <h1>Amazon Kinesis – Real-Time Data Streaming at Scale</h1>
+    </header>
+  
+
+      <section class="section">
+        <div class="container">
+            <div >
+    <h2>Introduction</h2>
+    <p>Amazon Kinesis is a fully managed AWS service designed to handle large-scale, real-time data streaming. It allows you to collect, process, and analyze streaming data like logs, telemetry, clickstreams, and IoT data for insights and immediate actions.</p>
+    <p class="source"><a href="https://aws.amazon.com/kinesis/" target="_blank">Source: AWS Kinesis</a></p>
+
+    <h2>Core Capabilities</h2>
+    <ul>
+      <li><strong>Real-Time Analytics:</strong> Monitor data as it flows to generate real-time metrics and alerts.</li>
+      <li><strong>Multi-source Ingestion:</strong> Accepts input from apps, devices, logs, or services.</li>
+      <li><strong>Scalable Streams:</strong> Uses shards to scale parallel data processing.</li>
+      <li><strong>Integration:</strong> Works with Lambda, S3, Redshift, and OpenSearch.</li>
+    </ul>
+
+    <h2>Underlying Technologies</h2>
+    <ul>
+      <li><strong>Shard-based Partitioning:</strong> Splits streams for scalable parallelism.</li>
+      <li><strong>Kinesis Client Library (KCL):</strong> Helps manage state, load balancing, and checkpoints.</li>
+      <li><strong>Event-time Processing:</strong> Supports windowing and ordering for time-based queries.</li>
+    </ul>
+
+    <h2>Business Impact</h2>
+    <ul>
+      <li><strong>Operational Intelligence:</strong> Enables fraud detection, anomaly alerts, and monitoring.</li>
+      <li><strong>Responsive Systems:</strong> Power dashboards and AI decisions with low-latency data.</li>
+      <li><strong>Cost Efficiency:</strong> Pay-as-you-go streaming with no server management.</li>
+    </ul>
+</div>
+    <h2>Algorithms Used</h2>
+
+    <div class="algorithm">
+      <h4>Sliding Window</h4>
+      <p>The Sliding Window algorithm maintains a subset of recent data points in a stream and updates results by sliding the window forward, efficiently recalculating without processing the entire data each time. 
+        It’s useful for computing sums, averages, or extremes over recent data intervals.</p>
+        <b>Solving Performance Bottlenecks with Sliding Window</b>
+        <p>In streaming analytics on Amazon Kinesis, sliding window avoids expensive recomputation over the entire data stream each time a query runs. This drastically reduces processing time and resource usage for time-based queries, enabling real-time insights with minimal delay.</p>
+        
+        <video width="800" controls>
+  <source src="Screen Recording 2025-06-07 201438.mp4" type="video/mp4">
+  Sorry, your browser does not support embedded videos.
+</video>
+
+        <p><strong>Time Complexity:</strong>O(n), where n is the number of elements processed.</p>
+        <p><strong>Space Complexity:</strong>O(k), where k is the window size.</p>
+        <a href="sliding_window.c">View Code of Sliding window on </a>
+    </div>
+
+    <div class="algorithm">
+      <h4>Producer-Consumer Pattern</h4>
+      <p>The Producer-Consumer pattern uses a shared bounded queue where producers add data and consumers remove data. Synchronization (like mutexes and semaphores) ensures safe concurrent access, preventing race conditions. Producers wait if the queue is full; consumers wait if it’s empty. This coordination efficiently manages data flow between generating and processing components.</p>
+      <b>Solving Performance Bottlenecks with Producer-Consumer Pattern</b>
+      <p>Producers continuously send data to Kinesis streams (acting as queues), while consumers read and process data asynchronously. This pattern helps handle high data volumes by buffering incoming data and allowing consumers to process it at their own pace, ensuring scalability and fault tolerance.</p>
+       
+      <p><strong>Time Complexity:</strong>Each item is produced and consumed once → O(1) per operation (enqueue and dequeue).
+        Overall complexity depends on the total number of items processed, say n, so total is O(n).</p>
+    <p><strong>Space Complexity:</strong>
+    The buffer (queue) holds up to a maximum capacity of k items → O(k) space.
+    If unbounded, space grows with input size → O(n) in worst case.</p>
+      <a href="producer_consumer.c">View Code</a>
+    </div>
+
+    <div class="algorithm">
+      <h4>Checkpointing (Memoization-style)</h4>
+      <p>Periodically saves processing state to resume from the last checkpoint after failures, avoiding reprocessing from the start. Similar to memoization but for streaming data.</p>
+       <b>Solving Performance Bottlenecks with Checkpointing </b>
+       <p>Checkpointing in Amazon Kinesis involves periodically saving the position of the last successfully processed data record in the stream. This allows the system to resume processing from the exact point of failure instead of starting over, ensuring fault tolerance and efficient data handling with minimal reprocessing overhead.</p>
+        
+        Time Complexity
+O(n) — Each element in the stream is processed exactly once, where n is the number of records in the stream.
+
+The checkpointing ensures no repeated processing on restarts, so no extra overhead in time beyond linear traversal.
+
+Space Complexity
+O(1) — Only a fixed amount of extra space is used to store the checkpoint (an integer).
+
+The stream data itself occupies O(n) space, but checkpointing does not add additional space proportional to the input size.
+
+
+
+      <p><strong>Time Complexity:</strong>
+    <p> O(n) — Each element in the stream is processed exactly once, where n is the number of records in the stream.
+The checkpointing ensures no repeated processing on restarts, so no extra overhead in time beyond linear traversal.</p>
+
+  <p><strong>Space Complexity:</strong>
+    <p>O(1) — Only a fixed amount of extra space is used to store the checkpoint (an integer).
+  The stream data itself occupies O(n) space, but checkpointing does not add additional space proportional to the input size.
+</p>
+      <a href="checkpointing.py">View Code</a>
+    </div>
+
+    <h2>Core Takeaways</h2>
+    <p>Amazon Kinesis demonstrates how combining efficient streaming algorithms and robust system patterns creates a scalable, fault-tolerant platform for real-time data processing. It highlights the importance of managing continuous data flow with low latency, ensuring smooth concurrency, and maintaining system state to recover gracefully from failures. 
+    This balance between performance and reliability is key for building modern, data-driven applications.</p>
+</div>
+    </div>
+    
+    
+    </section>
+      <footer> 
+     &copy; 2025 Vrushali Bargur    
+    </footer>
+   
+  </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+  <div class="wrapper">
+   
+    <div class="section">
+       
+  </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

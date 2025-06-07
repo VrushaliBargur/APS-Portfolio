@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon Prime Case Study</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #7a5980;     /* Muted Plum */
+    --accent: #bc7c9c;      /* Dusty Pink */
+    --bg: #f4f7fa;
+    --text: #2a2a3c;        /* Dark Indigo */
+    --card-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.08);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  
+
+  .container {
+    max-width: 1100px;
+    width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+header {
+  background-color: #fff8fc;
+  color: #7a5980; /* Plum tone */
+  padding: 2em;
+  text-align: center;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 1100px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow);
+  margin-bottom: 20px;
+  border: 1px solid #e4d4e4;
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #7a5980, #cf6989);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+
+  h2 {
+    font-size: 1.8rem;
+    color: var(--accent);
+    border-left: 5px solid var(--accent);
+    padding-left: 12px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+
+  .section {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .section:hover {
+    transform: scale(1.01);
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  ul li {
+    margin-bottom: 12px;
+  }
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .source {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  .algorithm {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  pre {
+    background-color: #272822;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 0.9rem;
+  }
+
+  code {
+    font-family: Consolas, Monaco, monospace;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1em 0;
+    color: #555;
+    font-size: 0.9em;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    .section {
+      padding: 20px;
+    }
+    .container {
+      padding: 20px 10px;
+    }
+  }
+</style>
+
+
+
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h2><b>Amazon Prime – Driving Efficiency & Innovation Through Algorithmic Excellence</b></h2>
+    </header>
+
+    <!-- All your content sections -->
+    <div class="container">
+       <!-- Introduction -->
+    <div class="section">
+      <h2>Introduction</h2>
+      <p>
+        Amazon Prime, launched in 2005, is Amazon's subscription-based service offering a comprehensive suite of benefits,
+        including expedited shipping, exclusive shopping deals, and access to digital content such as Prime Video and Amazon Music.
+      </p>
+      <p>
+        With over 200 million members worldwide, Prime has become a cornerstone of Amazon's ecosystem, enhancing customer loyalty
+        and driving engagement across its platforms.
+      </p>
+      <p class="source">
+        Source: <a href="https://thestrategystory.com/2021/09/21/amazon-prime-business-model/" target="_blank">The Strategy Story</a>
+      </p>
+    </div>
+
+    <!-- Core Capabilities -->
+    <div class="section">
+      <h2>Core Capabilities</h2>
+
+      <div>
+        <h3>1. Fast and Reliable Delivery</h3>
+        <p>Prime members enjoy expedited shipping options, including free One-Day, Two-Day, Same-Day, and Standard Delivery on eligible items.</p>
+        <p class="source"><a href="https://www.amazon.in/gp/help/customer/display.html?nodeId=GRPQFCNVUDYCBG24" target="_blank">Source: amazon.in</a></p>
+      </div>
+
+      <div>
+        <h3>2. Digital Content Access</h3>
+        <p>Access to Prime Video (movies, series), Prime Music (ad-free music), and Prime Reading (eBooks, comics).</p>
+        <p class="source">
+          <a href="https://www.primevideo.com/region/eu/offers/nonprimehomepage/ref=dv_web_force_root" target="_blank">Prime Video</a> |
+          <a href="https://www.amazon.com/kindle-dbs/fd/nonprime-pr/ref=insider_ar_reading_strtbksrs" target="_blank">Prime Reading</a>
+        </p>
+      </div>
+
+      <div>
+        <h3>3. Exclusive Shopping Benefits</h3>
+        <p>Members get early access to Lightning Deals, exclusive discounts, and special promotions.</p>
+        <p class="source"><a href="https://www.amazon.in/gp/help/customer/display.html?nodeId=GR2WKYLHWHLVK6R9" target="_blank">Prime Shopping Benefits</a></p>
+      </div>
+    </div>
+
+    <!-- Underlying Technology -->
+    <div class="section">
+      <h2>Underlying Technology</h2>
+      <ul>
+        <li><strong>Advanced Recommendation Systems:</strong> Personalization using AI/ML based on user behavior and preferences.</li>
+        <li><strong>Scalable Cloud Infrastructure:</strong> AWS powers content delivery using services like EC2, S3, Lambda.</li>
+        <li><strong>Data Analytics:</strong> Big data enables optimization of inventory, pricing, and personalization.</li>
+      </ul>
+    </div>
+
+    <!-- Business Impact -->
+    <div class="section">
+      <h2>Business Impact</h2>
+      <ul>
+        <li><strong>Increased Customer Loyalty:</strong> Prime members purchase more often and spend more.</li>
+        <li><strong>Enhanced Brand Equity:</strong> Amazon is seen as an innovative, customer-first brand.</li>
+        <li><strong>Expansion of Ecosystem:</strong> Integration with Alexa, Kindle, and other services.</li>
+      </ul>
+    </div>
+
+    <!-- Algorithms Section -->
+    <div class="section">
+      <h2>Classic Algorithms Used in Amazon Prime</h2>
+
+      <div class="algorithm">
+        <h3>1. Graph Algorithms – Dijkstra's Algorithm</h3>
+        <p><strong>Use:</strong> Used to find the shortest or most efficient delivery routes. Helps optimize time and cost by calculating shortest paths or solving complex vehicle routing problems.</p>
+        <b>Solving Performance Bottlenecks with Dijkstra's Algorithm</b>
+        <p>Dijkstra’s Algorithm helps Amazon Prime optimize delivery routes by finding the shortest or fastest paths from warehouses to customer locations. This reduces delivery time, lowers fuel costs, avoids traffic delays, and ensures fast, reliable shipping — a core promise of Prime.</p>
+        <p><strong>Time:</strong> O((V + E) log V)<br> <strong>Space:</strong> O(V)</p>
+        <p><a href="dijktras.cpp">View Dijkstra algorithm code here</a></p>
+      </div>
+
+      <div class="algorithm">
+        <h3>2. LRU Caching</h3>
+        <p><strong>Use:</strong>Manage which items to keep in cache to speed up content delivery. Evict less important data to free space for new data.</p>
+        <b>Solving Performance Bottlenecks with LRU Caching</b>
+        <p>LRU (Least Recently Used) Caching enables Amazon Prime to deliver frequently accessed content—like popular videos or frequently viewed products—faster by storing them in memory. This reduces server load, decreases latency, and improves user experience during high traffic periods.</p>
+        <p><strong>Time:</strong> O(1) <br> <strong>Space:</strong> O(capacity)</p>
+        <p><a href="lru.cpp">view code for LRU caching here</a></p>
+      </div>
+
+      <div class="algorithm">
+        <h3>3. 0/1 Knapsack (Dynamic Programming)</h3>
+        <p><strong>Use:</strong> Used to allocate resources efficiently, e.g., decide which products to stock or ship to maximize profit or minimize cost.</p>
+        <b>Solving Performance Bottlenecks with 0/1 Knapsack</b>
+        <p>Amazon Prime leverages the 0/1 Knapsack algorithm to optimize inventory loading and delivery logistics by selecting the most valuable combination of items that fit within capacity constraints (like delivery vans or warehouse space). By prioritizing items based on demand, profitability, or urgency, this algorithm helps Amazon maximize resource utilization, ensure fast delivery of high-priority goods, and reduce transportation and storage inefficiencies—contributing directly to Prime’s promise of fast and reliable service.</p>
+         <p><strong>Time:</strong> O(nW) <br> <strong>Space:</strong> O(nW)</p>
+        <p><a href="o\1kanpsack.cpp"> 0/1 Knapsack algorithm code here</a></p>
+      </div>
+
+      <div class="algorithm">
+        <h3>4. TF-IDF for Search Ranking</h3>
+        <p><strong>Use:</strong> Used in search engines to rank and retrieve relevant content quickly.</p>
+        <b>Solving Performance Bottlenecks with 0/1 Knapsack</b>        
+     <p>Amazon Prime uses the TF-IDF (Term Frequency–Inverse Document Frequency) algorithm to enhance search accuracy in its platform by ranking products, videos, and content based on relevance to user queries. By scoring how important a term is in a specific document relative to a large corpus, 
+      TF-IDF helps prioritize more meaningful results over generic ones. This ensures users find the most relevant content quickly—improving search efficiency, content discovery, and overall user satisfaction on Prime.</p>
+        <p><strong>Time:</strong> O(N) <br> <strong>Space:</strong> O(T + D)</p>
+        <p><a href="tfidf.py">View code for TF-IDF's code</a></p>
+      </div>
+
+      <div class="algorithm">
+        <h3>5. Load Balancing – Round Robin</h3>
+        <p><strong>Use:</strong> Distribute requests efficiently to prevent overload on any single server.</p>
+        <b>Solving Performance Bottlenecks with 0/1 Knapsack</b>        
+<p>Load balancing using the Round Robin algorithm helps Amazon Prime efficiently distribute incoming user requests across multiple servers. By sequentially assigning each new request to the next server in a cyclic order, Round Robin prevents any single server from becoming a bottleneck due to overload. This balanced distribution ensures optimal resource utilization, reduces response time, and maintains system stability during high traffic, thereby solving performance bottlenecks and providing a smooth and reliable user experience.</p>
+        <p><strong>Time:</strong> O(1)<br> <strong>Space:</strong> O(1)</p>
+       <p><a href="round.cpp">View code for Round Robin algorithm</a></p>
+      </div>
+    </div>
+ <div class="section">
+   
+      <h2>Core Takeaways</h2>
+      <p>Core Takeaways
+Amazon Prime strategically applies algorithms and system design to build a seamless and scalable streaming experience. Every layer—content delivery, traffic management, and personalization—is finely optimized through intelligent, data-driven decisions rather than relying solely on infrastructure. This approach highlights how efficiency, real-time responsiveness, and smart automation work together to deliver a high-quality user experience on a global scale.
+
+</p>
+    </div>
+    </div>
+
+    <!-- Optional footer (if you want) -->
+    <footer>
+      &copy; 2025 Vrushali Bargur
+    </footer>
+  </div>
+</body>
+
+
+
+
+
+
+</html>

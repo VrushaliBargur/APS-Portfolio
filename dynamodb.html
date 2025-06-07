@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DynamoDB – Algorithms Behind NoSQL Performance</title>
+<style>
+  :root {
+    --primary: #4a4e69;
+    --accent: #c9ada7;
+    --bg: #f2e9e4;
+    --text: #22223b;
+    --card-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.08);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  header {
+    background-color: var(--card-bg);
+    color: var(--primary);
+    padding: 2em;
+    text-align: center;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow);
+    margin-bottom: 20px;
+  }
+
+  .container {
+    max-width: 1100px;
+    width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex-grow: 1;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    color: var(--accent);
+    border-left: 5px solid var(--accent);
+    padding-left: 12px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+
+  .section {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .section:hover {
+    transform: scale(1.01);
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  ul li {
+    margin-bottom: 12px;
+  }
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .source {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  .algorithm {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  pre {
+    background-color: #272822;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 0.9rem;
+  }
+
+  code {
+    font-family: Consolas, Monaco, monospace;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1em 0;
+    color: #555;
+    font-size: 0.9em;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .section {
+      padding: 20px;
+    }
+
+    .container {
+      padding: 20px 10px;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Amazon DynamoDB – Algorithms Behind NoSQL Performance</h1>
+    </header>
+    <div class="container">
+      <div class="section">
+        <h2>Introduction</h2>
+        <p>Amazon DynamoDB is a fully managed NoSQL database service provided by AWS that delivers ultra-low latency performance at any scale. It’s designed for applications requiring consistent, single-digit millisecond response times, making it suitable for gaming, IoT, mobile apps, and real-time bidding platforms.</p>
+      </div>
+
+      <div class="section">
+  <h2>Core Capabilities</h2>
+  <ul>
+    <li><strong>High Availability:</strong> Automatically replicates data across multiple Availability Zones.</li>
+    <li><strong>On-Demand Scalability:</strong> Instantly scales read/write throughput with no downtime.</li>
+    <li><strong>Key-Value & Document Store:</strong> Supports flexible data models using partition keys and sort keys.</li>
+    <li><strong>Integrated Caching:</strong> DynamoDB Accelerator (DAX) provides in-memory caching to reduce latency further.</li>
+    <li><strong>Backup and Restore:</strong> Offers point-in-time recovery and automated backups.</li>
+  </ul>
+</div>
+
+
+    <div class="section">
+  <h2>Underlying Technology</h2>
+  <ul>
+    <li><strong>Partitioning via Hashing:</strong> Distributes data across partitions using consistent hashing on partition keys.</li>
+    <li><strong>Write-Ahead Logging:</strong> Ensures durability and atomicity of writes.</li>
+    <li><strong>Eventual Consistency / Strong Consistency:</strong> Supports both consistency models for reads.</li>
+    <li><strong>Streams and Triggers:</strong> DynamoDB Streams capture item-level changes and integrate with Lambda for event-driven processing.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Business Impact</h2>
+  <ul>
+    <li><strong>High Throughput for User-Intensive Applications:</strong> Supports millions of concurrent requests per second without performance degradation.</li>
+    <li><strong>Low Operational Overhead:</strong> Fully serverless — no patching or capacity planning required.</li>
+    <li><strong>Cost Optimization:</strong> On-demand or provisioned capacity modes let businesses pay only for what they use.</li>
+    <li><strong>Global Reach:</strong> Global tables offer multi-region, multi-master replication for low-latency access across the world.</li>
+  </ul>
+</div>
+
+
+      <div class="section">
+        <h2>Core Algorithmic Techniques Powering DynamoDB</h2>
+
+        <div class="algorithm">
+          <h3>Merkle Trees</h3>
+          <p>Merkle Tree is a cryptographic data structure that organizes data blocks in a tree of hashes, where each leaf node is a hash of data and each non-leaf node is a hash of its child nodes. It enables efficient and secure verification of data integrity and consistency.</p>
+          <b>Solving Performance Bottlenecks with Merkle Trees</b>
+          <p>When multiple replicas exist, ensuring consistency can be expensive if the entire dataset needs to be compared or transferred. Merkle Trees allow DynamoDB to pinpoint exactly which partitions or records differ between replicas. This targeted comparison reduces unnecessary data transfer and CPU load, improving synchronization performance and overall system availability.</p>
+           
+          <div style="display: flex; justify-content: center;">
+  <span><img src="MerkleTree-min-1024x512.png" alt="Vector Clock working" width="400" height="300" /><br><b>Merkle Tree structure</b></span>
+</div>
+
+          <p><strong>Time Complexity:</strong> O(n) to build, O(log n) to verify</p>
+          <p><strong>Space Complexity:</strong> O(n) where n is the number of partitions</p>
+          <p><a href="merkle.cpp" target="_blank">View Merkle's code here </a></p>
+
+        </div>
+
+            
+
+
+
+        <div class="algorithm">
+          <h3>Bloom Filters</h3>
+          <p>A Bloom Filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. It can quickly tell if an element might be present or definitely not present, using multiple hash functions and a bit array.</p>
+          <b>Solving Performance Bottlenecks with Bloom Filters</b>
+          <p>Traditional exact membership checks in large datasets can be slow or memory-intensive. Bloom Filters provide a fast, memory-light alternative by allowing a small false positive rate but zero false negatives, drastically speeding up membership queries in streaming and database applications.</p>
+
+<p><strong>Time Complexity:</strong> Add: O(k), where k is the number of hash functions.
+Check: O(k).</p>
+          <p><strong>Space Complexity:</strong> O(m), where m is the size of the bit array. This is usually much smaller than storing the entire dataset.</p>
+     <p><a href="bloom.cpp" target="_blank">View Bloom filter's code here </a></p>
+ 
+        </div>
+
+        <div class="algorithm">
+          <h3>Vector Clocks</h3>
+          <p>Vector Clocks are a logical clock mechanism used in distributed systems to track causal relationships between events across different nodes or processes. Unlike scalar clocks (e.g., Lamport timestamps), vector clocks provide a more precise way to determine whether two events are concurrent or causally related.</p>
+          <b>Solving Performance Bottlenecks with Bloom Filters</b>
+          <p>Vector clocks are a way to track changes to data across distributed systems. They help identify whether two versions of data conflict or one came after the other. By doing this, systems like DynamoDB can handle updates from different nodes without overwriting important changes, making conflict resolution smarter and faster.</p>
+          <div style="display: flex; justify-content: center;">
+  <span><img src="How-does-the-vector-clock-algorithm-work.webp" alt="Vector Clock working" width="400" height="300" /><br><b>Vector Clock working</b></span>
+
+</div>
+          <p><strong>Time Complexity:</strong> Updates & merges: O(N), where N is the number of nodes.</p>
+          <p><strong>Space Complexity:</strong> O(N) per vector clock, since each clock stores N counters.</p>
+        <p><a href="vector_clock.py" target="_blank">View Vector Clock's code here </a></p>
+ 
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Core Takeaways</h2>
+        <p>DynamoDB applies consistent hashing, vector clocks, and quorum-based consensus protocols to deliver reliable, low-latency access to highly available NoSQL data. These algorithms balance consistency, scalability, and fault tolerance—fundamental for modern distributed systems.</p>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Vrushali Bargur
+    </footer>
+  </div>
+</body>
+
+</html>

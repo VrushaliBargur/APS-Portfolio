@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amazon SageMaker - Algorithmic Service Model</title>
+  <style>
+    :root {
+      --primary: #192a51;
+      --accent: #967aa1;
+      --bg: #f5e6e8;
+      --text: #aaa1c8;
+      --card-bg: #d5c6e0;
+      --shadow: rgba(25, 42, 81, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--primary);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    header {
+      background-color: var(--card-bg);
+      color: var(--primary);
+      padding: 2em;
+      text-align: center;
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      width: 100%;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      flex-grow: 1;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      border-left: 5px solid var(--accent);
+      padding-left: 12px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .section {
+      background-color: var(--card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .section:hover {
+      transform: scale(1.01);
+    }
+
+    ul {
+      padding-left: 20px;
+      color: var(--primary);
+    }
+
+    ul li {
+      margin-bottom: 12px;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .source {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .algorithm {
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    pre {
+      background-color: #3a3b69;
+      color: #f5e6e8;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+    }
+
+    code {
+      font-family: Consolas, Monaco, monospace;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em 0;
+      color: #555;
+      font-size: 0.9em;
+      margin-top: 30px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .container {
+        padding: 20px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Amazon SageMaker - Algorithmic Service Model</h1>
+    </header>
+
+    <div class="container">
+      <section class="section">
+        <h2>Introduction</h2>
+        <p>
+          Amazon SageMaker is a fully managed machine learning service that enables developers and data scientists to build, train, and deploy machine learning models quickly at scale. It simplifies the end-to-end machine learning workflow, providing integrated tools for data processing, model building, training, tuning, and deployment.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Core Capabilities</h2>
+        <ul>
+          <li>Provides built-in algorithms and frameworks for fast model training and inference.</li>
+          <li>Supports automated model tuning (hyperparameter optimization) to improve accuracy efficiently.</li>
+          <li>Enables distributed training across multiple compute instances for large datasets.</li>
+          <li>Offers seamless deployment with auto-scaling endpoints for real-time predictions.</li>
+          <li>Facilitates data labeling, feature engineering, and experiment management.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Underlying Technology</h2>
+        <p>
+          SageMaker leverages containerized environments running on AWS-managed infrastructure. It integrates optimized machine learning libraries (like TensorFlow, PyTorch, MXNet), scalable compute clusters, and managed storage services. It utilizes distributed computing, parallel processing, and managed orchestration to handle complex training workloads efficiently.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Business Impact</h2>
+        <p>
+          By accelerating model development and deployment, SageMaker reduces time to market for AI-powered applications, improves business decision-making, and lowers operational costs. It empowers organizations to leverage machine learning for personalization, forecasting, anomaly detection, and automation, driving innovation and competitive advantage.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Algorithms Used</h2>
+
+
+  
+ 
+
+<div class="algorithm">
+  <h3>A* Search Algorithm</h3>
+  <p>A* (A-Star) is a graph traversal and pathfinding algorithm widely used in AI, robotics, and game development. It finds the shortest path between a start and goal node using both the actual cost to reach a node (g(n)) and a heuristic estimate of the cost to reach the goal (h(n)), combined as f(n) = g(n) + h(n). A* ensures optimality and completeness when the heuristic is admissible.</p>
+  <b>Solving Performance Bottlenecks with A*</b>
+  <p>A*’s efficient pathfinding and heuristic-guided search principles inspire optimization techniques within SageMaker, especially in areas like hyperparameter tuning, model training workflows, and resource scheduling. By prioritizing promising solutions and reducing unnecessary computations, A* concepts help SageMaker deliver faster, cost-effective machine learning model development and deployment.</p>
+  <div style="display: flex; justify-content: center;">
+    <span>
+      <img src="a_-search-algorithm-2.png" alt="A* Pathfinding" width="400" height="300" /><br><b>A* Pathfinding</b>
+    </span>
+  </div>
+ <p><strong>Time Complexity:</strong> Worst-case time complexity is O(b^d), where b is the branching factor (average number of successors per state) and d is the depth of the shortest solution. This can degrade to exponential in the worst case but is often much faster in practice due to heuristics.</p>
+  <p><strong>Space Complexity:</strong> A* stores all generated nodes in memory, so space complexity is also O(b^d) in the worst case.</p>
+  <p><a href="astar.cpp" target="_blank">View A* Search code here</a></p>
+</div>
+
+
+  <div class="algorithm">
+  <h3>Deep Q-Learning (DQN)</h3>
+  <p>Deep Q-Learning is a reinforcement learning algorithm that combines Q-Learning with deep neural networks to enable agents to make decisions in complex, high-dimensional environments.</p>
+  <b>Solving Performance Bottlenecks with DQN</b>
+  <p>Deep Q-Learning (DQN) helps SageMaker by enabling efficient training and deployment of intelligent agents for decision-making tasks. SageMaker’s managed platform simplifies building and scaling these deep reinforcement learning models for complex environments.</p>
+  <div style="display: flex; justify-content: center;">
+    <span>
+      <img src="Deep-Q-Learning.png" alt="Deep-Q-Learning" width="400" height="300" /><br><b>A* Pathfinding</b>
+    </span>
+  </div>
+
+
+
+
+  <p><strong>Time Complexity:</strong> Depends on the neural network size and training iterations.</p>
+  <p><strong>Space Complexity:</strong> Proportional to the size of the replay buffer and network parameters.</p>
+  <p><a href="dqn.py" target="_blank">View Deep Q-Learning's code here</a></p>
+</div>
+
+
+
+
+
+ 
+
+      </section>
+
+      <section class="section">
+        <h2>Core Takeaways</h2>
+        <ul>
+          <li>SageMaker streamlines the entire machine learning lifecycle from data preparation to deployment.</li>
+          <li>Supports scalable, distributed, and automated ML workflows to handle complex datasets and models.</li>
+          <li>Integrates various algorithmic techniques to optimize performance, fault tolerance, and efficiency.</li>
+          <li>Enables businesses to rapidly innovate and deploy AI applications with reduced operational overhead.</li>
+        </ul>
+      </section>
+  
+    </div>
+     <footer>
+    © 2025 VrushaliBargur – Developed for Academic Portfolio
+  </footer>
+  </div>
+
+</body>
+</html>

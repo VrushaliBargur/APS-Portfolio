@@ -1,0 +1,362 @@
+function getModeCodeMirror(e){let t=[{name:"C",mime:"text/x-csrc",mode:"clike",ext:["c","h","ino"]},{name:"Cpp",mime:"text/x-c++src",mode:"clike",ext:["cpp","c++","cc","cxx","hpp","h++","hh","hxx"],alias:["cpp"]},{name:"Cpp14",mime:"text/x-c++src",mode:"clike",ext:["cpp","c++","cc","cxx","hpp","h++","hh","hxx"],alias:["cpp"]},{name:"csharp",mime:"text/x-csharp",mode:"clike",ext:["cs"],alias:["csharp"]},{name:"CSS",mime:"text/css",mode:"css",ext:["css"]},{name:"HTML",mime:"text/html",mode:"htmlmixed",ext:["html","htm","handlebars","hbs"],alias:["xhtml"]},{name:"Java",mime:"text/x-java",mode:"clike",ext:["java"]},{name:"JavaScript",mime:"text/javascript",mode:"javascript",ext:["js"],alias:["ecmascript","js","node"]},{name:"jscript",mime:"text/javascript",mode:"javascript",ext:["js"],alias:["ecmascript","js","node"]},{name:"JSON",mimes:["application/json","application/x-json"],mode:"javascript",ext:["json","map"],alias:["json5"]},{name:"MySQL",mime:"text/x-mysql",mode:"sql"},{name:"Perl",mime:"text/x-perl",mode:"perl",ext:["pl","pm"]},{name:"PHP",mime:"text/x-php",mode:"php",ext:["php","php3","php4","php5","php7","phtml"]},{name:"Python",mime:"text/x-python",mode:"python",ext:["BUILD","bzl","py","pyw"],file:/^(BUCK|BUILD)$/},{name:"Python3",mime:"text/x-python",mode:"python",ext:["BUILD","bzl","py","pyw"],file:/^(BUCK|BUILD)$/},{name:"Ruby",mime:"text/x-ruby",mode:"ruby",ext:["rb"],alias:["jruby","macruby","rake","rb","rbx"]},{name:"Scala",mime:"text/x-scala",mode:"clike",ext:["scala"]},{name:"SQL",mime:"text/x-sql",mode:"sql",ext:["sql"]},{name:"SQLite",mime:"text/x-sqlite",mode:"sql"},{name:"LaTeX",mime:"text/x-latex",mode:"stex",ext:["text","ltx","tex"],alias:["tex"]},{name:"VB.NET",mime:"text/x-vb",mode:"vb",ext:["vb"]},{name:"Vue.js Component",mime:"text/x-vue",mode:"vue",ext:["vue"]},{name:"Go",mime:"text/x-go",mode:"go",ext:["go"]}],i=e;"node"!==e&&"nodejs"!==e||(i="javascript");for(var o=0;o<t.length;o++){var r=t[o];if(r.name.toLowerCase()==i)return r;if(r.alias)for(var s=0;s<r.alias.length;s++)if(r.alias[s].toLowerCase()==name)return r}}(()=>{var e=document.currentScript?document.currentScript.getAttribute("environment"):null;let i=document.currentScript?document.currentScript.getAttribute("domain"):null,o=document.currentScript?document.currentScript.getAttribute("no-scroll"):null,a=!0,t=[void 0,null,"None"],r=["//Driver Code Starts","//Driver Code Ends","#Driver Code Starts","#Driver Code Ends","\x3c!--Driver Code Starts--\x3e","\x3c!--Driver Code Ends--\x3e","/*Driver Code Starts*/","/*Driver Code Ends*/"],n="https://codejudge.geeksforgeeks.org/",s="https://assets.geeksforgeeks.org/codetabs",d=["c","cpp","cpp14","csharp","java","javascript","html","css","node","perl","php","python","python3","py","py3","scala","ruby","go"],l=("development"===e?(n="https://codejudgetest.geeksforgeeks.org/",s="https://assets.geeksforgeeks.org/codetabs-dev"):"local"===e&&(n="https://codejudgetest.geeksforgeeks.org/",s="/static-tabs"),document.createElement("template")),c,h=`<svg xmlns="http://www.w3.org/2000/svg" class="gfg-icon" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.0" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg> `,u=`
+        <div class="border" id="edit-code-loader" class="gfg-icon" hidden></div>
+        <svg xmlns="http://www.w3.org/2000/svg" id="edit-close-icon" class="gfg-icon" width="17" height="17" viewBox="0 0 24 24" stroke-width="2.0" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+            <path d="M13.5 6.5l4 4" />
+        </svg>`,p=`<svg id="expand-icon" width="17" height="17" viewBox="1 5 47 6" stroke-width="1" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M44.4507 7.91963C44.7062 8.18159 44.8496 8.53199 44.8496 8.89419C44.8496 9.25639 44.7062 9.60088 44.4507 9.8523L38.9862 15.2053C38.8593 15.3296 38.7087 15.4272 38.5429 15.4924C38.3771 15.5577 38.1995 15.5894 38.02 15.5857C37.6577 15.5782 37.3101 15.427 37.0539 15.1655C36.7977 14.9039 36.6537 14.5533 36.6537 14.1909C36.6537 13.8284 36.7977 13.4838 37.0539 13.2328L40.1862 10.1645L30.3697 9.96203C30.0073 9.95456 29.6599 9.80343 29.4037 9.54189C29.1475 9.28035 29.0035 8.92983 29.0035 8.56743C29.0035 8.20503 29.1475 7.86044 29.4037 7.60947C29.6599 7.3585 30.0073 7.22171 30.3697 7.22918L40.1862 7.4316L37.0539 4.23407C36.927 4.10455 36.8264 3.95182 36.7577 3.7846C36.6891 3.61738 36.6537 3.43894 36.6537 3.25948C36.6537 3.08001 36.6891 2.90304 36.7577 2.73865C36.8264 2.57426 36.927 2.42568 37.0539 2.30139C37.1808 2.17711 37.3314 2.07955 37.4972 2.01429C37.6629 1.94903 37.8406 1.91735 38.02 1.92105C38.1995 1.92475 38.3771 1.96376 38.5429 2.03586C38.7087 2.10795 38.8593 2.21172 38.9862 2.34124L44.4507 7.91963Z" fill="black"/>
+            <rect x="24.5859" y="16.8309" width="3.31306" height="16.5653" rx="1.65653" transform="rotate(-180 24.5859 16.8309)" fill="black"/>
+            <path d="M0.884258 7.91957C0.62878 8.18152 0.485352 8.53193 0.485352 8.89413C0.485352 9.25632 0.62878 9.60082 0.884258 9.85224L6.3488 15.2053C6.47567 15.3295 6.6263 15.4271 6.79207 15.4924C6.95783 15.5576 7.1355 15.5893 7.31493 15.5856C7.6773 15.5781 8.02483 15.427 8.28106 15.1654C8.5373 14.9038 8.68125 14.5533 8.68125 14.1908C8.68125 13.8284 8.5373 13.4837 8.28106 13.2327L5.14879 10.1644L14.9653 9.96197C15.3276 9.9545 15.6751 9.80337 15.9313 9.54183C16.1875 9.28029 16.3314 8.92977 16.3314 8.56737C16.3314 8.20497 16.1875 7.86038 15.9313 7.60941C15.6751 7.35844 15.3276 7.22164 14.9653 7.22912L5.14879 7.43154L8.28106 4.23401C8.40794 4.10449 8.50858 3.95176 8.57724 3.78454C8.64591 3.61732 8.68125 3.43888 8.68125 3.25942C8.68125 3.07995 8.64591 2.90298 8.57724 2.73859C8.50858 2.5742 8.40794 2.42562 8.28106 2.30133C8.15419 2.17705 8.00357 2.07949 7.8378 2.01423C7.67203 1.94897 7.49436 1.91729 7.31493 1.92099C7.1355 1.92469 6.95783 1.9637 6.79207 2.03579C6.6263 2.10789 6.47567 2.21166 6.3488 2.34118L0.884258 7.91957Z" fill="black"/>
+        </svg>`,g=` <svg xmlns="http://www.w3.org/2000/svg"  class="gfg-icon" width="17" height="17" viewBox="0 0 24 24" stroke-width="2.0" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
+                                <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
+                        </svg>`;l.innerHTML=`
+    <style>
+      :host {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      ::slotted(gfg-panel) {
+        flex-basis: 100%;
+      }
+      .codeblock-container[data-content]::after,
+      .codeblock-container[data-danger-content]::after {
+        content: attr(data-content);
+        display: block;
+        position: absolute;
+        bottom: 0px;
+        right: 0;
+        padding: 4px 12px;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        font-family: inherit;
+        background-color: rgb(217, 217, 217);
+        color: #424242 !important;
+      }
+      .codeblock-container[data-danger-content]::after {
+        color: rgb(132, 5, 5) !important;
+        content: attr(data-danger-content);
+      }
+      .codeblock-container{
+        position: relative;
+        width: 100%;
+        font-family: sans-serif;
+      }
+      .code-container{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ddd;
+        clear: left;
+      }
+      
+      #slot-panel::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: transparent;
+        width: 0px !important;
+      }
+
+      #slot-panel::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #999;
+        width: 5px ; 
+      }
+      #slot-panel::-webkit-scrollbar {
+        width: 5px; 
+      }
+      #slot-panel::-webkit-scrollbar-thumb:hover {
+        cursor: pointer;
+      }
+      .editor-buttons-div,
+      .w-56 {
+        min-width: 46px;
+      }
+        .editor-buttons-div{
+            display: flex;
+            margin-left: auto;
+            height: 40px;
+            position: sticky; 
+            position: -webkit-sticky;
+            top: 60px;
+            z-index: 4;
+            width: fit-content;
+            justify-content: flex-end;
+            align-items: start;
+        }
+      .gfg-code{
+        padding: 0;
+        width: 100%;
+        display: block;
+      }
+      .editor-buttons{
+        display:flex;
+        width: fit-content;
+        gap: 8px;
+        margin-top: 8px;
+        padding-right: 11px;
+        position: relative;
+        margin-bottom: 4px;
+      }
+      .editor-buttons.output-box {
+        margin-top: 0px;
+      }
+      .editor-buttons.output-box button {
+        margin-bottom: 0 !important;
+      }
+        .output-box {
+            margin-left: 8px;
+        }
+      .code-button{
+        background: white;
+        margin-bottom: 10px;
+        border: 2px;
+        background: #e5e5e5;
+        border-radius: 50px;
+        width: 28px !important;
+        height: 28px !important;
+        cursor: pointer;
+        padding: 6px;
+      }
+        #expand-code-button{
+            margin-bottom: 0px;
+        }
+        #expand-driver-code {
+            transform: rotate(90deg);
+            transform-origin: center;
+        }
+      .code-output{
+        background: #efefef;
+        border-radius: 8px;
+        width: 100%;
+        margin: 10px 2px 5px 2px;
+      }
+      .close-output-button{
+        margin-bottom: 10px;
+      }
+      .code-output-content{
+        padding: 8px 16px;
+        margin: 0;
+        position: sticky;
+        position: -webkit-sticky;
+        margin-top: 10px;
+      }
+      .code-box {
+        display: flex;
+        flex-direction: column;
+        position: relative !important;
+      }
+      .code-output-box {
+        display: flex;
+        align-items: center;
+      }
+     .compiled-message-box {
+        background-color: #308d46;
+        border-radius: 6px;
+        color: white;
+        width: fit-content;
+        margin: 10px auto;
+        text-align: center;
+        flex-basis: 100%;
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 700;
+        padding-inline: 10px;
+    }
+    .compiled-message-box p {
+        margin-block: 5px;
+    }
+    .compiled-message-box-active {
+        display: flex;
+    }
+    .compiled-mess-content {
+        font-size: 10px;
+        padding-left: 5px;
+    }
+      .generated-output{
+        font-size: 15px;
+        white-space: pre-wrap;
+      }
+      .row-output{
+        color: black;
+        font-size: 16px;
+        padding : 10px;
+      }
+      .border {
+        width: 28px !important;
+        height: 28px !important;
+        position: absolute;
+        background: transparent;
+        border-radius: 50%;
+        border: 2px dashed #000;
+        margin-left: -8px;
+        margin-top: -7px;
+        animation-name: rotate;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+      .codeblock-container[data-mode=dark] .border {
+        border-color: white !important;
+      }
+      #icon-tabler-copy{
+        margin-bottom: -4px;
+        cursor: pointer;
+      }
+      .gfg-icon{
+        margin-left: auto;
+        margin-right: auto;
+        display: block !important;
+      }
+      
+        @keyframes rotate {
+            from{ transform: rotate(-360deg); }
+            to{ transform: rotate(360deg); }
+        }
+        #code-output-element #jsFrame {
+            background-color: transparent;
+            border: unset;
+            width: 100%;
+        }
+        .loading-container.active {
+            width: 150px; 
+            height: 50px; 
+            background-color: lightgrey; 
+            opacity: 70%;
+            color: black; 
+            position: absolute; 
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            top: 30%;
+            left: 40%;
+            z-index: 1;
+            white-space: nowrap !important;
+            text-align: center; 
+            font-size: 13px; 
+            border-radius: 8px; 
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 2rem;
+        }
+        .loading-container {
+            display: none;
+        }
+        .playground-loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        
+    @media screen and (max-width: 700px) {
+        .editor-buttons-div {
+            position: sticky; 
+            top: 10px;  
+            z-index: 4;
+            width: fit-content;
+            margin-left: auto;
+            height: 38px;
+            padding-right: 5px;
+        }
+
+        .editor-buttons {
+            display: flex;
+            width: fit-content;
+            flex-direction: row;
+            gap: 8px;
+        }
+        .code-box {
+            position: relative;
+            flex-direction: column;
+        }
+        .code-button {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .compiled-message-box svg {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 375px) {
+        .compiled-message-box {
+            margin-inline: 5px;
+        }
+    }
+    </style>
+
+    <div class="codeblock-container">
+        <slot name="tab"></slot>
+        <div class="code-container">
+            <div class="code-box">    
+                <div id="editor-buttons-div" class="editor-buttons-div" >
+                    <div id="editor-buttons" class="editor-buttons">
+                        <button id="expand-driver-code" class="expand-driver-code code-button" title="Expand all Diver Codes">${p}</button>
+                        <button class="code-button" id="edit-close-button" title="Edit Code" hidden=false>${u}</button>
+                        <button class="code-button" id="run-code-button" title="Run Code and See Output">
+                            <div class="border" id="run-code-loader" class="gfg-icon" hidden></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="gfg-icon" width="17" height="17" viewBox="0 0 24 24" stroke-width="2.0" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M7 4v16l13 -8z" />
+                            </svg>
+                        </button>
+                        <button class="code-button" id="copy-code-button" title="Copy Code">${g}</button>
+                        <button class="code-button" id="mode-button"  title="Light mode" hidden=true>
+                            ${h}
+                        </button>
+                        
+                    </div>
+                </div>
+                <div id="slot-panel" class="gfg-code">
+                     <div id="playground-loader" class="loading-container">
+                        <span class="playground-loading">Loading Playground...</span>
+                    </div>
+                    <slot name="panel"></slot>
+                </div>
+            </div>
+            <div class="code-output-box" id="code-output-box" >
+                <div class="editor-buttons w-56 output-box" title="Close Output">
+                    <button class="code-button" id="close-output-button" hidden>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="gfg-icon" width="17" height="17" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M9 12h-3.586a1 1 0 0 1 -.707 -1.707l6.586 -6.586a1 1 0 0 1 1.414 0l6.586 6.586a1 1 0 0 1 -.707 1.707h-3.586v6h-6v-6z" />
+                            <path d="M9 21h6" />
+                        </svg>
+                    </button>
+                </div> 
+                <div class="code-output" id="code-output" hidden>
+                    <div class="row-output">
+                        <pre class="generated-output" id="code-output-element"></pre>
+                    </div> 
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    `;class m extends HTMLElement{constructor(){super(),this._defaultLanguage=this._getDefaultLanguage(),this.codeCache=new Map,this.codeMirrorCache=new Map,this._onSlotChange=this._onSlotChange.bind(this),this._copyCode=this._copyCode.bind(this),this._runCode=this._runCode.bind(this),this._editClose=this._editClose.bind(this),this._closeOutput=this._closeOutput.bind(this),this._closeButton=this._closeButton.bind(this),this._changeMode=this._changeMode.bind(this),this._setInitialtheme=this._setInitialtheme.bind(this),this._setCodeMirrorEditor=this._setCodeMirrorEditor.bind(this),this._runStaticCode=this._runStaticCode.bind(this),this._addCodeHighlightButton=this._addCodeHighlightButton.bind(this),this._extractCode=this._extractCode.bind(this),this._updateSelectedTabOnAllGFGTabs=this._updateSelectedTabOnAllGFGTabs.bind(this),this._setupCollapsibleCodeButtons=this._setupCollapsibleCodeButtons.bind(this),this.__initializeCodeMirror=this.__initializeCodeMirror.bind(this),this.__checkCodeTabsButtonHidden=this.__checkCodeTabsButtonHidden.bind(this),this._toggleDriverCodes=this._toggleDriverCodes.bind(this),this.__checkForDriverCodesPresentAndModifyButtonVisibility=this.__checkForDriverCodesPresentAndModifyButtonVisibility.bind(this),this._resetDriverCodes=this._resetDriverCodes.bind(this),this._requireAndInitializeCodeMirror=this._requireAndInitializeCodeMirror.bind(this),this._displayPlaygroundLoading=this._displayPlaygroundLoading.bind(this),this._removePlaygroundLoading=this._removePlaygroundLoading.bind(this),this._ToggleLineNumbersVisibilityInCodeMirror=this._ToggleLineNumbersVisibilityInCodeMirror.bind(this),this._codeMirrorEditor=!1,this._codeMirrorEditorMap={},this._codeMirrorCls=null,this.currentSelectedTab=!1,this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(l.content.cloneNode(!0)),this._tabSlot=this.shadowRoot.querySelector("slot[name=tab]"),this._panelSlot=this.shadowRoot.querySelector("slot[name=panel]"),this._codeElement=this.shadowRoot.querySelector("div[id=slot-panel]"),this._copyCodeElement=this.shadowRoot.querySelector("button[id=copy-code-button]"),this._runCodeElement=this.shadowRoot.querySelector("button[id=run-code-button]"),this._editCloseElement=this.shadowRoot.querySelector("button[id=edit-close-button]"),this._closeOutputButton=this.shadowRoot.querySelector("button[id=close-output-button]"),this._ModeButton=this.shadowRoot.querySelector("button[id=mode-button]"),this._codeOutputBox=this.shadowRoot.querySelector("div[id=code-output]"),this._codeOutputContainer=this.shadowRoot.querySelector("div[id=code-output-box]"),this._editorButtonDiv=this.shadowRoot.querySelector("div[id=editor-buttons-div]"),this._editorButtons=this.shadowRoot.querySelector("div[id=editor-buttons]"),this._runOnIDE="true"==this.getAttribute("data-run-ide"),this._isfoldedCodePresent=!1,this._codeTabsButtonHidden=null,this._showHideDriverCodesButton=this.shadowRoot.querySelector("button[id=expand-driver-code]"),this._codeContainer=this.shadowRoot.querySelector(".code-container"),this._backGround=document.querySelector("#data-mode"),this._backGround||(this._backGround=document.getElementsByTagName("body")[0]),this._setInitialtheme();let t=()=>{this._setInitialtheme()};new MutationObserver(function(e){e.forEach(e=>{if("attributes"===e.type)switch(e.attributeName){case"data-dark-mode":case"data-theme":t()}})}).observe(this._backGround,{attributeFilter:["data-dark-mode","data-theme"],subtree:!0}),this._panelSlot.addEventListener("slotchange",this._onSlotChange),this._copyCodeElement.addEventListener("click",this._copyCode),this._runCodeElement.addEventListener("click",this._runCode),this._editCloseElement.addEventListener("click",this._editClose),this._closeOutputButton.addEventListener("click",this._closeOutput),this._ModeButton.addEventListener("click",this._changeMode),this._showHideDriverCodesButton.addEventListener("click",this._toggleDriverCodes)}_addCodeHighlightButton(){if(this._isLoadingInEditor())return null;Array.from(this.querySelectorAll("pre")).forEach(s=>{var e=Array.from(s.querySelectorAll(":scope > span"));let i=[],o=null;if(e.forEach((e,t)=>{e.classList.contains("driver-code")?i.push({span:e,index:t}):e.classList.contains("main-code")&&(o=e)}),0===i.length)return null;let n=(e,t)=>{var i;"none"===e.style.display?(e.style.display="block",t.textContent="",t.classList.add("active"),i=(i=e).querySelectorAll("span"),0!=(i=Array.from(i).filter(e=>{e=e.innerText.trim();return r.includes(e)})).length&&i.forEach(e=>e.style.display="none"),o.classList.add("expanded")):(e.style.display="none",t.textContent=" {...} ",t.classList.remove("active"),o.classList.remove("expanded"))};i.forEach(({span:e})=>{i=" {...} ",o=()=>n(e,t),(r=document.createElement("button")).textContent=i,r.className="code-collapse-btn",r.addEventListener("click",o);let t=r;var i,o,r;s.insertBefore(t,e),e.style.display="none"})}),this.isCollapseButtonAdded=!0}_isLoadingInEditor(){return!!this.getAttribute("code-editor")}_hideTabForSingleTab(e){Array.isArray(e)&&1==e.length&&(e[0].hidden=!0)}__checkCodeTabsButtonHidden(){if(null===this._codeTabsButtonHidden){let e=this;for(;null!=e;){if(e.className.includes("hide-codetabs-buttons")){this._codeTabsButtonHidden=!0;var t=this._editorButtonDiv;t&&t.remove();break}e=e.parentElement}}return this._codeTabsButtonHidden}__checkForDriverCodesPresentAndModifyButtonVisibility(){this._isfoldedCodePresent=!t.includes(this._getSelectedPanel().getAttribute("data-main-code-start")),0==this._isfoldedCodePresent?this._showHideDriverCodesButton.style.display="none":this._isfoldedCodePresent&&(this._showHideDriverCodesButton.style.display="block")}connectedCallback(){this._addCodeHighlightButton(),this.addEventListener("click",this._onClick),this.hasAttribute("role")||this.setAttribute("role","tablist"),this._isLoadingInEditor()&&(this._editorButtonDiv&&(this._editorButtonDiv.style.display="none"),a=!1),"gfg"==i?this._editorButtonDiv.style.top="40px":"community"==i?this._editorButtonDiv.style.top="82px":"next"==i&&(this._editorButtonDiv.style.top="100px"),this.__checkCodeTabsButtonHidden(),this._hideTabForSingleTab(this._allTabs());var e=this.shadowRoot.querySelector("div[id=slot-panel]");!e||this._isLoadingInEditor()||this._codeTabsButtonHidden||(e.style.marginTop="-35px"),e&&(this._isLoadingInEditor()||this._codeTabsButtonHidden)&&(e.style.display="flex",e.style.paddingTop="5px",e.style.paddingBottom="5px"),Promise.all([customElements.whenDefined("gfg-tab"),customElements.whenDefined("gfg-panel")]).then(e=>{this._linkPanels()}),this.__checkForDriverCodesPresentAndModifyButtonVisibility()}disconnectedCallback(){this.removeEventListener("keydown",this._onKeyDown),this.removeEventListener("click",this._onClick),this.removeEventListener("click",this._copyCode),this.removeEventListener("click",this._runCode),this.removeEventListener("click",this._editClose),this.removeEventListener("click",this._closeButton),this.removeEventListener("click",this._closeOutput),this.removeEventListener("click",this._changeMode),this.removeEventListener("click",this._showHideDriverCodesButton)}_onSlotChange(e){this.__checkForDriverCodesPresentAndModifyButtonVisibility()}_linkPanels(){var e=this._allTabs(),e=(e.forEach(e=>{var t=e.nextElementSibling;t&&t.tagName&&"gfg-panel"!==t.tagName.toLowerCase()?console.error(`Tab #${e.id} is not a`+"sibling of a <gfg-panel>"):t&&e&&(e.setAttribute("aria-controls",t.id),t.setAttribute("aria-labelledby",e.id),(t=t.getAttribute("data-code-lang"))==this._defaultLanguage||t.includes("python")&&this._defaultLanguage.includes("python"))&&e.setAttribute("selected",!0)}),e.find(e=>e.selected)||e[0]);this._selectTab(e),a&&this._editClose(null,!0,!1)}_allPanels(){return Array.from(this.querySelectorAll("gfg-panel"))}_getSelectedPanel(){return this._allPanels().find(e=>!1===e.hidden)}_allTabs(){return Array.from(this.querySelectorAll("gfg-tab"))}_panelForTab(e){e=e.getAttribute("aria-controls");if(""!==e)return this.querySelector("#"+e)}reset(){var e=this._allTabs(),t=this._allPanels();e.forEach(e=>e.selected=!1),t.forEach(e=>e.hidden=!0)}_selectTab(e){if(this.reset(),e){var t=e.nextElementSibling;if(!t)throw new Error("No panel with id");t.hidden=!(e.selected=!0);var e=this.getAttribute("data-run-ide"),i=this._getSelectedPanel().getAttribute("data-code-lang");return"true"===e&&d.includes(i)?(this._runCodeElement.hidden=!1,this._editCloseElement.hidden=!1):(this._runCodeElement.hidden=!0,this._editCloseElement.hidden=!0),this.__checkForDriverCodesPresentAndModifyButtonVisibility(),t}}__updateSelectedCodeLangOnGFGTab(e,t){var i=t.querySelectorAll(`[data-code-lang="${e}"]`);return!(0==i.length||1!==i.length&&t.querySelector(`[data-code-lang="${e}"][selected="true"]`)||!(e=i[0].previousElementSibling)&&1==e.getAttribute("selected")||(t._onTabChange(e),0))}_updateSelectedTabOnAllGFGTabs(e){}_onTabChange(e,t=!1){if(!e.selected){this._removePlaygroundLoading(),this._setTabMessage("",!1,!0),this._closeButton(!1);var i,e=this._selectTab(e);this.__checkForDriverCodesPresentAndModifyButtonVisibility(),this._closeOutput(),c&&c.abort();try{if(e)return i=e.getAttribute("data-code-lang"),this._editClose(null,a,t),this._resetDriverCodes(),i}catch(e){console.log(e)}}}_onClick(e){"tab"===e.target.getAttribute("role")&&(e=this._onTabChange(e.target,!0))&&(this._setDefaultLanguageCookie(e),this._updateSelectedTabOnAllGFGTabs(e))}_extractCodeFromPanel(e){var e=e.querySelector("pre").cloneNode(!0),t=e.querySelectorAll(".code-collapse-btn"),t=(0<t.length&&t.forEach(e=>{var t=e.parentNode,i=e.previousSibling,i=(i&&i.nodeType===Node.TEXT_NODE&&(i.textContent=i.textContent.replace(/\s+$/,"")),[...t.childNodes].indexOf(e)),e=(e.remove(),[...t.childNodes].filter(e=>e.nodeType===Node.TEXT_NODE));0<e.length&&e[i]&&(t=e[i].textContent,e[i].textContent=t.replace(/^\n+|\n+$/g,""))}),e.textContent);return"string"==typeof t?t.trim():""}_extractCode(e=!0,t=null){null==t&&(t=this._getSelectedPanel());let i=void 0;return e&&(i=this._codeMirrorEditorMap[t.id]),e&&"string"==typeof i?i:i||this._extractCodeFromPanel(t)}_copyCode(e){let t="";try{t=(this._codeMirrorEditor?(t=this._codeMirrorEditor.getValue()).split("\n").filter(e=>!r.includes(e)):(t=this._extractCode(!1)).split("\n").filter(e=>!r.includes(e))).join("\n"),navigator.clipboard.writeText(t),this._copyCodeElement.innerHTML=`<svg width="17" height="17" viewBox="0 -1.28 24 20" stroke-width="2.0" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 7.667C5 6.95967 5.28099 6.28131 5.78115 5.78115C6.28131 5.28099 6.95967 5 7.667 5H16.333C16.6832 5 17.03 5.06898 17.3536 5.20301C17.6772 5.33704 17.9712 5.53349 18.2189 5.78115C18.4665 6.0288 18.663 6.32281 18.797 6.64638C18.931 6.96996 19 7.31676 19 7.667V16.333C19 16.6832 18.931 17.03 18.797 17.3536C18.663 17.6772 18.4665 17.9712 18.2189 18.2189C17.9712 18.4665 17.6772 18.663 17.3536 18.797C17.03 18.931 16.6832 19 16.333 19H7.667C7.31676 19 6.96996 18.931 6.64638 18.797C6.32281 18.663 6.0288 18.4665 5.78115 18.2189C5.53349 17.9712 5.33704 17.6772 5.20301 17.3536C5.06898 17.03 5 16.6832 5 16.333V7.667Z" stroke="#2c3e50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2.012 14.737C1.705 14.5626 1.44965 14.31 1.2719 14.0049C1.09415 13.6998 1.00034 13.3531 1 13V3C1 1.9 1.9 1 3 1H13C13.75 1 14.158 1.385 14.5 2M9 12L11 14L15 10" stroke="#2c3e50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`,setTimeout(()=>{this._copyCodeElement.innerHTML=g},2e3),this._setTabMessage("Code Copied!")}catch(e){this._setTabMessage("Error copying code",!0),console.log(e)}}_openLoginModal(){var e,t;return"true"===this.getAttribute("allow-code-exec")||(t="codeExecCount",e=parseInt(localStorage.getItem(t),10)||0,"gfg"===i&&e<5?(e++,localStorage.setItem(t,e),!0):!(t=document.querySelector(".login-modal-btn"))||"gfg"!==i||(t.click(),!1))}_show_message(t){var e,i,o=["html","css","javascript"].filter(e=>t.includes(e));o.length<2||(o=o.map(e=>"html"===e?"HTML":"css"===e?"CSS":"javascript"===e?"JavaScript":e).join(", ")+" Code Compiled Successfully!",e=document.createElement("div"),i=document.createElement("p"),e.innerHTML=' <svg xmlns="http://www.w3.org/2000/svg" viewBox="64 64 896 896" focusable="false" data-icon="check" width="12px" height="12px" fill="#ffffff" aria-hidden="true"><path d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"></path></svg>',e.appendChild(i),e.classList.add("compiled-message-box"),i.classList.add("compiled-mess-content"),i.innerText=o,this.isMessageExistng)||(this._codeContainer.querySelector(".compiled-message-box")||this._codeContainer.appendChild(e),this._codeContainer.querySelector(".compiled-message-box").classList.add("compiled-message-box-active"),this.isMessageExistng=!0,setTimeout(()=>{this._codeContainer.querySelector(".compiled-message-box").classList.remove("compiled-message-box-active"),this.isMessageExistng=!1},2e3))}_runStaticCode(e){var t=Object.keys(e);let i=this._codeOutputBox.querySelector("#code-output-element");try{require.config({packages:[{name:"StaticCodeCompiler",location:""+s,main:s+"/StaticCodeCompilerV2.min.js"}],waitSeconds:20}),require([s+"/StaticCodeCompilerV2.min.js"],function(){window.StaticCodeCompiler(e,!0,i)}),this._show_message(t)}catch(e){console.log(e),i.innerHTML="Some Error Occured"}}_findCodeByCodelanguage(e){var i={},o=this._allPanels();for(let t of e){var r=o.find(e=>e.getAttribute("data-code-lang")===t);r&&(i[t]=this._extractCode(!0,r))}return i}_toggleDriverCodes(){let i=!1;var e;this._codeMirrorEditor?this._codeMirrorEditor.operation(()=>{this._codeMirrorEditor.eachLine(e=>{var e=this._codeMirrorEditor.getLineNumber(e),t=this._codeMirrorEditor.getLine(e);t.includes("Driver Code Starts")&&(i=((this._codeMirrorEditor.isFolded(this._codeMirrorCls.Pos(e,t.length))||"expand-icon"!=this._showHideDriverCodesButton.querySelector("svg").id)&&(this._codeMirrorEditor.isFolded(this._codeMirrorCls.Pos(e,t.length))&&"collapse-icon"==this._showHideDriverCodesButton.querySelector("svg").id||this._codeMirrorEditor.foldCode(this._codeMirrorCls.Pos(e,t.length))),!0))})}):(e=this.querySelectorAll(".code-collapse-btn"))&&0<e.length&&(e.forEach(e=>{i=(""==e.innerText&&"expand-icon"==this._showHideDriverCodesButton.querySelector("svg").id||""!==e.innerText&&"collapse-icon"==this._showHideDriverCodesButton.querySelector("svg").id||e.click(),!0)}),i=!0),"expand-icon"==this._showHideDriverCodesButton.querySelector("svg").id&&i?this._showHideDriverCodesButton.innerHTML=`<svg id="collapse-icon" width="17" height="17" viewBox="2 5 46 7" stroke-width="1" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <path d="M29.4023 7.91963C29.1468 8.18159 29.0034 8.53199 29.0034 8.89419C29.0034 9.25639 29.1468 9.60088 29.4023 9.8523L34.8669 15.2053C34.9937 15.3296 35.1444 15.4272 35.3101 15.4924C35.4759 15.5577 35.6536 15.5894 35.833 15.5857C36.1954 15.5782 36.5429 15.427 36.7991 15.1655C37.0554 14.9039 37.1993 14.5533 37.1993 14.1909C37.1993 13.8284 37.0554 13.4838 36.7991 13.2328L33.6669 10.1645L43.4834 9.96203C43.8457 9.95456 44.1932 9.80343 44.4494 9.54189C44.7056 9.28035 44.8495 8.92983 44.8495 8.56743C44.8495 8.20503 44.7056 7.86044 44.4494 7.60947C44.1932 7.3585 43.8457 7.22171 43.4834 7.22918L33.6669 7.4316L36.7991 4.23407C36.926 4.10455 37.0266 3.95182 37.0953 3.7846C37.164 3.61738 37.1993 3.43894 37.1993 3.25948C37.1993 3.08001 37.164 2.90304 37.0953 2.73865C37.0266 2.57426 36.926 2.42568 36.7991 2.30139C36.6723 2.17711 36.5216 2.07955 36.3559 2.01429C36.1901 1.94903 36.0124 1.91735 35.833 1.92105C35.6536 1.92475 35.4759 1.96376 35.3101 2.03586C35.1444 2.10795 34.9937 2.21172 34.8669 2.34124L29.4023 7.91963Z" fill="black"/>
+        <rect x="24.5859" y="16.8309" width="3.31306" height="16.5653" rx="1.65653" transform="rotate(-180 24.5859 16.8309)" fill="black"/>
+        <path d="M15.9326 7.91957C16.1881 8.18152 16.3315 8.53193 16.3315 8.89413C16.3315 9.25632 16.1881 9.60082 15.9326 9.85224L10.4681 15.2053C10.3412 15.3295 10.1906 15.4271 10.0248 15.4924C9.85906 15.5576 9.68139 15.5893 9.50196 15.5856C9.13959 15.5781 8.79207 15.427 8.53583 15.1654C8.2796 14.9038 8.13565 14.5533 8.13565 14.1908C8.13565 13.8284 8.2796 13.4837 8.53583 13.2327L11.6681 10.1644L1.8516 9.96197C1.48928 9.9545 1.1418 9.80337 0.885597 9.54183C0.629398 9.28029 0.485466 8.92977 0.485466 8.56737C0.485466 8.20497 0.629398 7.86038 0.885597 7.60941C1.1418 7.35844 1.48928 7.22164 1.8516 7.22912L11.6681 7.43154L8.53583 4.23401C8.40896 4.10449 8.30831 3.95176 8.23965 3.78454C8.17099 3.61732 8.13565 3.43888 8.13565 3.25942C8.13565 3.07995 8.17099 2.90298 8.23965 2.73859C8.30831 2.5742 8.40896 2.42562 8.53583 2.30133C8.66271 2.17705 8.81333 2.07949 8.9791 2.01423C9.14487 1.94897 9.32254 1.91729 9.50196 1.92099C9.68139 1.92469 9.85906 1.9637 10.0248 2.03579C10.1906 2.10789 10.3412 2.21166 10.4681 2.34118L15.9326 7.91957Z" fill="black"/>
+        </svg>`:this._showHideDriverCodesButton.innerHTML=p}_resetDriverCodes(){var e;this._codeMirrorEditor?this._codeMirrorEditor.eachLine(e=>{var e=this._codeMirrorEditor.getLineNumber(e),t=this._codeMirrorEditor.getLine(e);t.includes("Driver Code Starts")&&(this._codeMirrorEditor.isFolded(this._codeMirrorCls.Pos(e,t.length))?this._showHideDriverCodesButton.innerHTML=p:(this._showHideDriverCodesButton.innerHTML=p,this._codeMirrorEditor.foldCode(this._codeMirrorCls.Pos(e,t.length))))}):(e=this.querySelectorAll(".code-collapse-btn"))&&0<e.length&&"expand-icon"!=this._showHideDriverCodesButton.querySelector("svg").id&&e.forEach(e=>{e.click(),this._showHideDriverCodesButton.innerHTML=p})}_ToggleLineNumbersVisibilityInCodeMirror(e=!1){var t=this._getSelectedPanel(),i=this.codeMirrorCache.get(t.id);i&&(e?i.setOption("lineNumbers",!0):i.setOption("lineNumbers",!1),this.codeMirrorCache.set(t.id,i))}async _runCode(){var o=this._openLoginModal();if(o&&(this._setTabMessage("",!1,!0),c=new AbortController,!this.loader||this.loader.hidden)){try{this._codeOutputBox.hidden=!1,this._closeOutputButton.hidden=!1,this._codeOutputBox.scrollIntoView({behavior:"smooth",block:"center"})}catch(e){return void console.log(e)}this._ToggleLineNumbersVisibilityInCodeMirror(!1);var r=this._codeOutputBox.querySelector("#code-output-element"),s="Some Error Occured, Please Try Again";this.loader=this._runCodeElement.querySelector("#run-code-loader"),this.loader.hidden=!1,this._runCodeElement.disabled=!0,r.innerHTML="Compiling...";let i=this._getSelectedPanel().getAttribute("data-code-lang");var e,o=this._codeMirrorEditor?this._extractCode(!0):this._extractCode(!1);if(["html","css","javascript"].includes(i))e=["html","css","javascript"].filter(e=>e!=i),e={...this._findCodeByCodelanguage(e),[i]:o},this._runStaticCode(e);else{let e,t;["javascript","jscript","node"].includes(i)&&(i="js");try{if("ERROR"===(e=await(e=await fetch(n+"submit-request",{signal:c.signal,method:"POST",withCredentials:!1,headers:{Accept:"application/json","Content-Type":"application/json"},body:JSON.stringify({language:i,driver_code:o,user_code:"",input:"",is_full_prob:1,save:!1})})).json()).status||!e.submission_id)return r.innerHTML=s,this.loader.hidden=!0,this._runCodeElement.disabled=!1,void this._ToggleLineNumbersVisibilityInCodeMirror(!0)}catch(e){return r.innerHTML=s,this.loader.hidden=!0,void(this._runCodeElement.disabled=!1)}for(;;){try{t=await(t=await fetch(n+"get-status/"+e.submission_id,{signal:c.signal,method:"GET",withCredentials:!1,headers:{Accept:"application/json","Content-Type":"application/json"}})).json()}catch(e){return console.log(e),this.loader.hidden=!0,this._runCodeElement.disabled=!1,void(r.innerHTML=s)}if(!["IN-QUEUE","in-queue"].includes(t.status))break;await new Promise(e=>setTimeout(e,3e3))}if(t){let e;t.output?e=t.output:(e=t.rntError||t.cmpError,this._ToggleLineNumbersVisibilityInCodeMirror(!0)),/[<>&]/.test(e)?r.textContent=e||"No Output":r.innerHTML=e||"No Output"}else r.innerHTML=s}this.loader.hidden=!0,this._runCodeElement.disabled=!1}}_setCodeMirrorEditor(e){let r=this._codeMirrorCls;this._codeMirrorEditor=e,this._codeMirrorEditor.operation(()=>{this._codeMirrorEditor.eachLine(e=>{var t,i=this._codeMirrorEditor.getLineNumber(e),o=this._codeMirrorEditor.getLine(i);e.gutterMarkerSet=null!=e.gutterMarkerSet,!e.gutterMarkerSet&&o.includes("Driver Code Starts")?((t=document.createElement("span")).textContent=o,t.className="driver-code-text",this._codeMirrorEditor.markText({line:i,ch:0},{line:i,ch:o.length},{replacedWith:t,clearOnEnter:!1}),this._codeMirrorEditor.setGutterMarker(i,"CodeMirror-foldgutter"),this._codeMirrorEditor.foldCode(r.Pos(i,o.length)),e.gutterMarkerSet=!0):o.includes("Driver Code Ends")&&((t=document.createElement("span")).textContent=o,t.className="driver-code-text",this._codeMirrorEditor.markText({line:i,ch:0},{line:i,ch:o.length},{replacedWith:t,clearOnEnter:!1}))})}),this._codeMirrorEditor.refresh(),a||this._codeMirrorEditor.focus()}__hideCodePreview(e,t=!0){e.querySelector("pre").hidden=t}async __initializeCodeMirror(r,i,e="dark",t=()=>{}){if(!this._runOnIDE)throw Error("Codemirror Not Allowed as Run On IDE Disabled");if(this.__checkCodeTabsButtonHidden())throw Error("Codemirror Not Allowed as Codetabs Buttons are hidden");let o=i.id;let s=getModeCodeMirror(i.getAttribute("data-code-lang").toLowerCase());if(!s)throw Error("Not Supported in Codemirror");let n=this._extractCode(!0,i),d="dark"===e?"monokai":"default";e=await new Promise(t=>{require([`codemirror/mode/${s.mode}/`+s.mode],()=>{a||(i.querySelector("pre").hidden=!0),this._codeMirrorEditorMap[o]=n;var e=r(i,{extraKeys:{"Ctrl-Space":"autocomplete","Ctrl-Q":function(e){e.foldCode(e.getCursor())}},mode:s.mime,value:"string"==typeof n?n.trim():"",theme:d,autofocus:!1,lineNumbers:!1,styleActiveLine:!0,foldGutter:!1,gutters:["CodeMirror-linenumbers"],foldOptions:{rangeFinder:function(e,t){if(!e.getLine(t.line).includes("Driver Code Starts"))return null;let i=t.line;for(var o=e.lineCount();i<o&&!e.getLine(i).includes("Driver Code Ends");)i++;return{from:r.Pos(t.line,0),to:r.Pos(i,e.getLine(i).length)}}}});e.on("change",e=>{this._codeMirrorEditorMap[o]=e.getValue()}),t(e)})});this.codeMirrorCache.set(o,e),t(e)}__editToCloseIcon(e){e.setAttribute("buttonType","edit"),e.setAttribute("title","Close Editor"),e.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg"  id="edit-close-icon" class="gfg-icon" width="17" height="17" viewBox="0 0 24 24" stroke-width="2.0" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M18 6l-12 12" />
+        <path d="M6 6l12 12" />
+    </svg>`}async _requireAndInitializeCodeMirror(i=null,e=!1,t=!0){i=i||this._getSelectedPanel(),require.config({packages:[{name:"codemirror",location:s+"/codemirror",main:"lib/codemirror"}],waitSeconds:20});try{var o,r=await new Promise(t=>{require(["codemirror","codemirror/addon/mode/loadmode","codemirror/addon/selection/active-line","codemirror/addon/fold/foldcode"],e=>{t(e)})});if(this._codeMirrorCls=r,e){for(let t of this.querySelectorAll("gfg-panel"))try{this.codeMirrorCache.get(t.id)||await this.__initializeCodeMirror(r,t,this._ModeButton.getAttribute("mode"),e=>{t.id===i.id&&this._setCodeMirrorEditor(e)}),this.__hideCodePreview(t)}catch(e){console.log(e),this.__hideCodePreview(t,!1)}t&&Array.from(document.querySelectorAll("gfg-tabs")).forEach(e=>{e!=this&&e._requireAndInitializeCodeMirror(null,!0,!1)})}else try{await this.__initializeCodeMirror(r,i,this._ModeButton.getAttribute("mode"),e=>{this._setCodeMirrorEditor(e)}),this.__hideCodePreview(i)}catch(e){console.log(e),this.__hideCodePreview(i,!1)}return a||(o=this._editCloseElement,this.__editToCloseIcon(o)),this._codeMirrorEditorMap[i.id]}catch(e){console.error("Error during require or initialization:",e)}}_displayPlaygroundLoading(){this._editCloseElement.disabled=!0,this.shadowRoot.querySelector("div[id=playground-loader]").classList.add("active")}_removePlaygroundLoading(){this.shadowRoot.querySelector("div[id=playground-loader]").classList.remove("active"),this._editCloseElement.disabled=!1}_updateCodeMirrorTheme(e){var t;e&&(e=this.codeMirrorCache.get(e.id))&&(t=this._ModeButton.getAttribute("mode"),e.setOption("theme","dark"===t?"monokai":"default"),this._setCodeMirrorEditor(e))}async _editClose(e,t=!1,i=!1){var o=this._getSelectedPanel(),r=this._codeMirrorEditorMap[o.id];if(null==r){if(!this._runOnIDE||t&&!a)return;if(0==t&&i)return}if(this._resetDriverCodes(),this._setTabMessage("",!1,!0),t||"edit"!==this._editCloseElement.getAttribute("buttonType"))try{var s=this._editCloseElement,n=s.querySelector("#edit-code-loader"),d=(n&&(n.hidden=!1),this._codeMirrorEditorMap[o.id]);d&&!a||o.querySelector(".CodeMirror")?this.__hideCodePreview(o,!0):(this._displayPlaygroundLoading(),await this._requireAndInitializeCodeMirror(o,i,a),this._removePlaygroundLoading()),a&&(n.hidden=!0),this.__editToCloseIcon(s),this._updateCodeMirrorTheme(o)}catch(e){console.log(e)}else this._closeButton(!0)}_closeButton(e=!0){var t=this._getSelectedPanel(),i=(e&&(this._codeMirrorEditor=!1,delete this._codeMirrorEditorMap[t.id],this.codeMirrorCache.delete(t.id)),this._editCloseElement.setAttribute("buttonType","close"),this._editCloseElement.setAttribute("title","Edit Code"),this._editCloseElement.innerHTML=u,a||this.__hideCodePreview(t,!1),t.querySelector(".CodeMirror"));i&&!a?i.parentNode.removeChild(i):a&&i&&e?(this.__hideCodePreview(t,!1),i.parentNode.removeChild(i)):this.__hideCodePreview(t,!1)}_closeOutput(){this._codeOutputBox.hidden=!0,this._closeOutputButton.hidden=!0,this._codeOutputBox.querySelector("#code-output-element").innerHTML="Compiling....",this._codeContainer.querySelector(".compiled-message-box")&&this._codeContainer.querySelector(".compiled-message-box").classList.remove("compiled-message-box-active")}_setInitialtheme(e){if(this._backGround){var t=this.shadowRoot.querySelector(".codeblock-container");let e=this._backGround.getAttribute("data-theme");e=e||this._backGround.getAttribute("data-dark-mode");var i=["dark","true"].indexOf(e)<0?"dark":"light";this._ModeButton.setAttribute("mode",i),!this.hasAttributes()&&window.location.hostname.includes("write")||(this.setAttribute("data-mode","dark"==i?"light":"dark"),t.setAttribute("data-mode","dark"==i?"light":"dark")),this._changeMode()}null===o||"false"===o?(t=this.shadowRoot.querySelector("div[id=slot-panel]"))&&(t.style.maxHeight="70vh",t.style.overflowY="auto"):(i=this.shadowRoot.querySelector(".gfg-code"))&&(i.style.width="calc(100% - 0px)")}_changeMode(e){this._setTabMessage("",!1,!0);var t=this._ModeButton.getAttribute("mode");let i={mode:"dark",title:"Light Mode",icon:`<svg xmlns="http://www.w3.org/2000/svg" class="gfg-icon" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" />
+        <path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" />
+    </svg>`,theme:"monokai"};-1<["dark"].indexOf(t)&&(i={mode:"light",title:"Dark Mode",icon:h,theme:"default"}),this._ModeButton.setAttribute("mode",i.mode),this._ModeButton.setAttribute("title",i.title),this._ModeButton.innerHTML=i.icon,this._allPanels().forEach(e=>{e.querySelector("div.highlight")&&("dark"===i.mode?e.querySelector("div.highlight").classList.add("monokai"):e.querySelector("div.highlight").classList.remove("monokai"))});t=document.getElementsByClassName("CodeMirror");t&&t[0]&&("default"===i.theme?t[0].style.backgroundColor="white":t[0].style.backgroundColor="",this._codeMirrorEditor)&&this._codeMirrorEditor.setOption("theme",i.theme),this._updateCodeMirrorTheme(this._getSelectedPanel())}_getDefaultLanguage(){let t="";var i=document.cookie.split(";");for(let e=0;e<i.length;e++){var o=i[e].split("=");"default_lang"==o[0].trim()&&(t=o[1].trim())}return t}_setDefaultLanguageCookie(e){var t;e!=this._defaultLanguage&&(t=parseInt((new Date).getFullYear())+2,document.cookie=`default_lang=${e}; expires=Sat, 01 Jan ${t} 00:00:01 GMT; domain=.geeksforgeeks.org; path=/`)}async _setTabMessage(e,t=!1,i=!1){var o=this.shadowRoot.querySelector(".codeblock-container");i?(o.removeAttribute("data-danger-content"),o.removeAttribute("data-content")):(o.setAttribute(t?"data-danger-content":"data-content",e||"Some error occurred"),await new Promise(e=>setTimeout(e,3e3)),this._setTabMessage("",!1,!0))}_setupCollapsibleCodeButtons(){if(this._editorButtonDiv){Array.from(this._editorButtons.children).forEach(e=>e.style.display="none"),this._editorButtonDiv.style.justifyContent="center",this._editorButtons.style.marginTop="0px";let e=document.createElement("button"),t=(e.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" class="gfg-icon" width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>`,e.className="code-button",e.id="expand-code-button",e.title="Expand",document.createElement("button"));t.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" class="gfg-icon" width="17" height="17" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+        <polyline points="18 9 12 3 6 9"></polyline>
+    </svg>`,t.className="code-button",t.id="collapse-code-button",t.title="Collapse",t.style.display="none",t.addEventListener("click",()=>{Array.from(this._editorButtons.children).forEach(e=>e.style.display="none"),this._editorButtonDiv.style.justifyContent="center",e.style.display="",t.style.display="none",this._editorButtons.style.marginTop="0px"}),e.addEventListener("click",()=>{Array.from(this._editorButtons.children).forEach(e=>e.style.display=""),t.style.display="",e.style.display="none",this._editorButtonDiv.style.justifyContent="flex-start",this._editorButtons.style.marginTop="20px"}),this._editorButtons.append(e),this._editorButtons.append(t)}}}customElements.define("gfg-tabs",m);let b=0;class _ extends HTMLElement{static get observedAttributes(){return["selected"]}connectedCallback(){this.setAttribute("role","tab"),this.id||(this.id="gfg-tab-generated-"+b++),this.setAttribute("aria-selected","false"),this.setAttribute("tabindex",-1),this._upgradeProperty("selected")}_upgradeProperty(e){var t;this.hasOwnProperty(e)&&(t=this[e],delete this[e],this[e]=t)}attributeChangedCallback(){var e=this.hasAttribute("selected");this.setAttribute("aria-selected",e),this.setAttribute("tabindex",e?0:-1)}set selected(e){(e=Boolean(e))?this.setAttribute("selected",""):this.removeAttribute("selected")}get selected(){return this.hasAttribute("selected")}}customElements.define("gfg-tab",_);let C=0;class v extends HTMLElement{connectedCallback(){this.setAttribute("role","tabpanel"),this.id||(this.id="gfg-panel-generated-"+C++)}}customElements.define("gfg-panel",v)})();

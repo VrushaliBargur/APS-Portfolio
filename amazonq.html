@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Portfolio – Amazon Q Business Case</title>
+  <style>
+    :root {
+      --primary: #146eb4;
+      --bg: #f9f9f9;
+      --text: #333;
+      --card-bg: #fff;
+      --heading: #0d2a44;
+    }
+    body { margin:0; font-family: Arial, sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+    header { background:var(--primary); color:#fff; padding:2em; text-align:center; }
+    header h1 { margin:0 0 .2em; }
+    header p { margin:0; }
+    .container { max-width:900px; margin:2em auto; padding:0 1em; }
+    .section { background:var(--card-bg); margin-bottom:2em; padding:1.5em; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,0.1); }
+    .section h2 { color:var(--heading); margin-top:0; }
+    .image { text-align:center; margin:1em 0; }
+    .image img { max-width:100%; height:auto; border:1px solid #ddd; border-radius:4px; }
+    table { border-collapse:collapse; width:100%; margin:1em 0; }
+    table, th, td { border:1px solid #ccc; }
+    th, td { padding:.8em; }
+    th { background:#eee; text-align:left; }
+    footer { text-align:center; padding:1em 0; color:#777; font-size:.9em; }
+  </style>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      margin: 20px;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h1 {
+      border-bottom: 2px solid #2980b9;
+      padding-bottom: 10px;
+    }
+    h2 {
+      margin-top: 30px;
+      color: #2980b9;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    .highlight {
+      background-color: #ecf0f1;
+      padding: 10px;
+      border-left: 5px solid #2980b9;
+      margin: 20px 0;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Amazon Q Business – AI Assistant</h1>
+    <p>Case Study • AI • Data Structures • Efficiency Analysis</p>
+  </header>
+  <div class="container">
+
+    <section class="section">
+      <h2>1. Business Case</h2>
+      <p><strong>Title:</strong> Amazon Q Business – AI Assistant for Enterprise Productivity</p>
+      
+
+  <p><strong>Amazon Q Business</strong> is a generative AI-powered enterprise assistant developed by <strong>Amazon Web Services (AWS)</strong>. Officially launched on <strong>November 28, 2023</strong>, it is designed to enhance organizational productivity by providing secure, context-aware assistance across various business functions.</p>
+
+  <h2> Core Capabilities</h2>
+  <ul>
+    <li><strong>Natural Language Understanding:</strong> Users can interact with the system using conversational language to retrieve information, generate content, and perform tasks.</li>
+    <li><strong>Integration with Enterprise Data:</strong> It connects seamlessly with over 40 enterprise systems, including Microsoft 365, Salesforce, and Amazon S3, enabling access to a wide array of organizational data.</li>
+    <li><strong>Permissions-Aware Responses:</strong> The system ensures that responses are tailored to the user's access rights, maintaining data security and compliance.</li>
+  </ul>
+
+  <h2>Underlying Technology</h2>
+  <p>Amazon Q Business leverages advanced AI models, including Amazon's Titan and models from Cohere and Anthropic, to process and generate responses. It utilizes <strong>Retrieval-Augmented Generation (RAG)</strong> techniques to enhance the accuracy and relevance of its outputs.</p>
+
+  <h2> Business Impact</h2>
+  <div class="highlight">
+    <p><strong>Adastra:</strong> Streamlined document retrieval and accelerated RFP development by 70%.</p>
+    <p><strong>Principal Financial Group:</strong> Reduced onboarding time by 45% and improved content generation processes.</p>
+  </div>
+  <p>These outcomes demonstrate the potential of Amazon Q Business to transform business operations by automating routine tasks and facilitating faster decision-making.</p>
+
+  <p>For more information, visit the <a href="https://aws.amazon.com/q/business/">official Amazon Q Business page</a>.</p>
+   </section>
+
+    <section class="section">
+      <h2>2. Data Structures & Algorithms</h2>
+      <ul>
+        <!--<li><strong>Inverted Index & Hash Tables:</strong> Enables fast lookup of documents across multiple repositories :contentReference[oaicite:1]{index=1}.</li>
+        <li><strong>Dispatcher Algorithm:</strong> Uses priority queues (O(log n)) to route queries based on context and permissions :contentReference[oaicite:2]{index=2}.</li>
+        <li><strong>Generative AI Models:</strong> LLMs (Titan, Anthropic) process and generate intuitive responses :contentReference[oaicite:3]{index=3}.</li>-->
+        
+        <h3>1. B-Trees and B+ Trees</h3>
+        <p> B-Trees and B+ Trees are fundamental data structures extensively employed in relational and distributed databases to support efficient indexing and query execution. 
+        In the context of Amazon Q Business—a generative AI-powered enterprise assistant—these structures are indirectly integral through its integration with data sources such as Amazon Kendra and Amazon Aurora PostgreSQL.  </p>
+        
+        <h2>Solving Performance Bottlenecks with B-Tree and B+ Tree Structures </h2>
+        <p>In Amazon Q Business, B-Trees and B+ Trees play a crucial role in optimizing data access through integrated services like Amazon Aurora PostgreSQL and Amazon Kendra. These indexing structures address key 
+        challenges such as slow data retrieval, complex filtering, and real-time scalability by enabling logarithmic-time search, efficient range queries, and minimal overhead during frequent inserts or updates. Their use ensures that Amazon Q
+       Business delivers fast, accurate, and secure responses across large-scale enterprise datasets, making them foundational to the system’s performance and reliability.</p>
+
+       <h2>Code, Time & Space Complexity for B-Trees and B+ Trees</h2>
+       <p>B-Trees: A self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.</p>
+       <p>Searching 120 in the B-Tree</p>
+       <img src="Screenshot 2025-06-07 105115.png" width="500" height="300">  
+       
+       <p>Time Complexity: O(log n) for insertion, deletion and searching.
+        Space Complexity: O(n)</p>
+      <p>B+ Trees: An extension of B-Trees where all records are stored at the leaf level, and internal nodes only store keys. This structure enhances range query performance and is widely used in database indexing.</p>
+      <p>Searching 58 in B+ trees</p>
+             <img src="Screenshot 2025-06-07 105338.png" width="500" height="300">  
+      <p>Time Complexity: O(log n) for insertion, deletion and searching.<br>
+        Space Complexity: O(n)</p>
+
+        <p>View B-Tree's code here<a></a></p>
+        <p>View B+ Tree's code here<a></a></p>
+
+
+
+      <h2>2.Chunking & Embeddings for Retrieval-Augmented Generation (RAG)</h2>
+   <p>In Amazon Q’s retrieval system, large documents are first divided into smaller overlapping pieces called chunks. This chunking preserves context while making it easier to process and search the text efficiently. Each chunk is then transformed into a semantic embedding—a numerical vector that captures the meaning of the text in that chunk.
+These embeddings are stored in a vector index, enabling the system to perform quick similarity searches. When a user submits a query, it is also converted into an embedding, and the system uses an Approximate Nearest Neighbor (ANN) algorithm (such as HNSW) to rapidly find the chunks most semantically similar to the query.</p>
+
+<h2>Solving Performance Bottlenecks with Chunking & Embeddings for RAG</h2>
+<p>The system quickly finds relevant chunks in sub-linear time, drastically reducing search time and improving accuracy. This approach efficiently handles large datasets and ensures fast, relevant responses, overcoming performance bottlenecks in real-time retrieval.</p>
+
+<h2>Code, Time & Space Complexity for B-Trees and B+ Trees</h2>
+
+
+<p><b>Time Complexity:</b>
+Chunking: O(N) — Splitting a document of length N into overlapping chunks is a linear operation.<br>
+Embedding: O(C) per chunk — Computing the embedding for each chunk depends on chunk size and the embedding model, typically considered constant per chunk.<br>
+Building ANN Index: Approximately O(M log M) — Building the approximate nearest neighbor index over M chunks is near-linear or slightly super-linear depending on the ANN algorithm used.<br>
+ANN Search: ~O(log M) per query — Querying the ANN index scales logarithmically with the number of chunks, enabling fast similarity search.<br>
+
+<b>Space Complexity:</b><br>
+Chunks Storage: O(N) — The chunks collectively store all text data proportional to the original document size.<br>
+Embeddings Storage: O(M × D) — Each of the M chunks has a vector embedding of dimension D (e.g., 768, 1024), requiring proportional memory.<br>
+ANN Index Storage: O(M × D) — The index holds embeddings and auxiliary data structures, so storage roughly matches the embeddings size with some overhead.</p>
+
+<p><a href="ann.py" target="_blank">View ANN's code here </a></p>
+
+
+</ul>
+    </section>
+
+    <section class="section">
+      <h2>3. Models & Figures</h2>
+      <div class="image">
+        <img src="https://via.placeholder.com/800x400?text=System+Architecture+Diagram" alt="Architecture Diagram">
+        <figcaption>Fig 1: System architecture — Connectors, Index, Dispatcher, LLM, UI</figcaption>
+      </div>
+      <div class="image">
+        <img src="https://via.placeholder.com/800x300?text=Performance+Chart" alt="Performance Chart">
+        <figcaption>Fig 2: Task latency — 70% faster in RFP generation :contentReference[oaicite:4]{index=4}</figcaption>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>4. Efficiency Analysis</h2>
+      <p><strong>Time complexity:</strong></p>
+      <ul>
+        <li>Index lookup: avg. O(1)</li>
+        <li>Dispatcher routing: O(log n)</li>
+        <li>LLM query generation: model-dependent latency</li>
+      </ul>
+      <p><strong>Space complexity:</strong> Proportional to number of indexed documents × metadata size</p>
+      <p><strong>Trade-offs:</strong> Increased memory for indexes vs. sub-second response; orchestration costs vs. improved accuracy.</p>
+      <table>
+        <tr><th>Metric</th><th>Result</th></tr>
+        <tr><td>RFP Generation Time</td><td>↓ 70% faster</td></tr>
+        <tr><td>Overall Task Time</td><td>↓ 20–25%</td></tr>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>5. Story & Connections</h2>
+      <p><strong>Intro:</strong> "Enterprise teams waste hours searching data across multiple silos."</p>
+      <p><strong>Challenge:</strong> Slow access to SharePoint, GitLab, Confluence led to low productivity.</p>
+      <p><strong>Solution:</strong> Amazon Q indexes data, uses AI-based chat, adheres to AWS IAM security — addressing “Invent & Simplify” and “Customer Obsession.”</p>
+      <p><strong>Big Picture:</strong> Merges enterprise-grade security, scalable AWS infrastructure, and advanced AI into one unified tool.</p>
+      <p><strong>References:</strong><br>
+        • AWS launch blog (April 2024) :contentReference[oaicite:5]{index=5}<br>
+        • Adastra efficiency reports :contentReference[oaicite:6]{index=6}<br>
+        • Industry coverage :contentReference[oaicite:7]{index=7}
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>6. Inferences</h2>
+      <ol>
+        <li>Index + LLM yields 25–70% time saving — strong ROI.</li>
+        <li>Permission-aware search delivers secure yet efficient access.</li>
+        <li>Embedding Q in workflows fosters rapid adoption and 80% efficiency in QuickSight usage :contentReference[oaicite:8]{index=8}.</li>
+      </ol>
+      <p><strong>Principles Aligned:</strong> Customer Obsession, Ownership, Invent & Simplify.</p>
+    </section>
+
+  </div>
+
+  <footer>
+    © 2025 Your Name – Developed for Academic Portfolio
+  </footer>
+</body>
+</html>

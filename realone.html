@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MyPortfolio</title>
+  <link rel="stylesheet" href="real.css" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init('47MfpYy3uRjvFphUz');
+    })();
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">MyPortfolio</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#domain">Domain</a></li>
+        <li><a href="#business">Business Cases</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Hi, I'm <span style="color: #f39c12;">Vrushali Bargur</span></h1>
+    <p>Aspiring Software Developer | Analytical Thinker | Eager Learner</p>
+    <a href="#contact" class="btn">Get In Touch</a>
+  </section>
+
+  <!-- About Section -->
+  <section class="about section" id="about">
+    <h2>About Me</h2>
+    <div class="underline"></div>
+    <p>
+      I'm a driven developer currently pursuing my B.Tech in Computer Science from KLE Technological University, Hubballi.
+          I enjoy transforming ideas into interactive, user-friendly experiences and thrive in collaborative environments.
+          With a passion for solving problems and a mindset focused on growth, I'm eager to contribute to meaningful projects
+          and learn from real-world challenges.
+    </p>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills section" id="skills">
+    <h2>Skills</h2>
+    <div class="underline"></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>🧠 Programming Languages</h3>
+        <ul>
+          <li>C</li>
+          <li>C++</li>
+          <li>JavaScript</li>
+          <li>Data Structures and Algorithms</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>🌐 Web Development</h3>
+        <ul>
+          <li>React.js</li>
+          <li>Node.js</li>
+          <li>Express.js</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>🤖 Machine Learning</h3>
+        <ul>
+          <li>Machine Learning</li>
+          <li>Deep Learning</li>
+          <li>Natural Language Processing</li>
+          <li>Generative AI</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Domain Section -->
+  <section class="domain section" id="domain">
+    <h2>Domain</h2>
+    <div class="underline"></div>
+    <p>
+      As an Aspiring Software Developer, I combine a deep understanding of C programming, C++, and Data Structures and Algorithms with hands-on experience to craft optimized and high-performing software solutions. My expertise extends to JavaScript and cutting-edge frameworks like Node.js, Express.js, and React.js, enabling me to build scalable and intuitive web applications that solve real-world problems.
+      <br /><br />
+      With a growing passion for Machine Learning and Deep Learning, I am equipped to leverage data-driven insights to drive intelligent decision-making in Data Science roles. I thrive in dynamic environments, continuously seeking opportunities to expand my knowledge and adapt to emerging technologies.
+      <br /><br />
+      I am excited to bring my skills, creativity, and drive for continuous growth to a forward-thinking team, contributing to impactful software solutions, web development innovations, and data-driven strategies.
+    </p>
+  </section>
+
+  <!-- Business Cases Section -->
+  <section class="business section" id="business">
+    <h2>Business Cases</h2>
+    <div class="underline"></div>
+    <p> <a href="amazonq.html">1.Amazon Q</a></p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact section" id="contact">
+    <h2>Contact</h2>
+    <div class="underline"></div>
+    <p>Feel free to reach out for any inquiries, opportunities, or collaborations.</p>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; <script>document.write(new Date().getFullYear())</script> Vrushali Bargur. Built with HTML, CSS, and EmailJS.
+  </footer>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      emailjs.sendForm('service_vrih87j', 'template_h69qdgn', this)
+        .then(() => {
+          alert('Message sent successfully!');
+          this.reset();
+        })
+        .catch((error) => {
+          console.error('EmailJS Error:', error);
+          alert('Failed to send message. Please try again later.');
+        });
+    });
+  </script>
+</body>
+</html>

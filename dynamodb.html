@@ -21,6 +21,19 @@
     box-sizing: border-box;
   }
 
+.reference-list {
+  display: flex;
+  justify-content: center;
+}
+
+.reference-list ul {
+  max-width: 900px;
+  width: 100%;
+  list-style-position: inside;
+}
+
+
+
   body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg);
@@ -223,7 +236,7 @@
           <p>When multiple replicas exist, ensuring consistency can be expensive if the entire dataset needs to be compared or transferred. Merkle Trees allow DynamoDB to pinpoint exactly which partitions or records differ between replicas. This targeted comparison reduces unnecessary data transfer and CPU load, improving synchronization performance and overall system availability.</p>
            
           <div style="display: flex; justify-content: center;">
-  <span><img src="https://github.com/VrushaliBargur/APS-Portfolio/blob/main/MerkleTree-min-1024x512.png" alt="Vector Clock working" width="400" height="300" /><br><b>Merkle Tree structure</b></span>
+  <span><img src="MerkleTree-min-1024x512.png" alt="Vector Clock working" width="400" height="300" /><br><b>Merkle Tree structure</b></span>
 </div>
 
           <p><strong>Time Complexity:</strong> O(n) to build, O(log n) to verify</p>
@@ -270,6 +283,35 @@ Check: O(k).</p>
         <p>DynamoDB applies consistent hashing, vector clocks, and quorum-based consensus protocols to deliver reliable, low-latency access to highly available NoSQL data. These algorithms balance consistency, scalability, and fault tolerance—fundamental for modern distributed systems.</p>
       </div>
     </div>
+<div class="section">
+  <h2>References</h2>
+  <ul>
+    <li>
+      <a href="https://medium.com/big-data-processing/vector-clocks-182007060193"
+         target="_blank"
+         rel="noopener noreferrer">
+         Medium – Vector Clocks
+      </a>
+    </li>
+    <li>
+      <a href="https://en.wikipedia.org/wiki/Bloom_filter"
+         target="_blank"
+         rel="noopener noreferrer">
+         Wikipedia – Bloom Filters
+      </a>
+    </li>
+    <li>
+      <a href="https://www.geeksforgeeks.org/introduction-to-merkle-tree/"
+         target="_blank"
+         rel="noopener noreferrer">
+         GeeksforGeeks – Introduction to Merkle Tree
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
 
     <footer>
       &copy; 2025 Vrushali Bargur
